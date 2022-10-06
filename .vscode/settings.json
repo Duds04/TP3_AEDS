@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "dicionario.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "celulastring.h": "c"
     }
 }

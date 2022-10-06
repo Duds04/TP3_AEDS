@@ -1,42 +1,60 @@
 #include "String.h"
 
-void FLVazia(TLista *pLista)
+void FLVazia(String *pLista)
 {
-    pLista->pPrimeiro = (Apontador)malloc(sizeof(TCelula));
-    pLista->pUltimo = pLista->pPrimeiro;
-    pLista->pPrimeiro->pProx = NULL;
+    pLista->pPrimeiro = NULL;
+    pLista->pUltimo = NULL;
 }
-int LEhVazia(TLista *pLista)
+int LEhVazia(String *pLista)
 {
-    return (pLista->pPrimeiro == pLista->pUltimo);
+    return (pLista->pUltimo == NULL);
 }
-int LInsere(TLista *pLista, char *pItem)
+void LInsere(String *pLista, TCelulaString *pItem)
 {
-    pLista->pUltimo->pProx = (Apontador)malloc(sizeof(TCelula));
-    pLista->pUltimo = pLista->pUltimo->pProx;
-    pLista->pUltimo->palavra = *pItem;
+    if (pLista->pUltimo == NULL)
+    {
+        pLista->pUltimo = (Apontador)malloc(sizeof(TCelulaString));
+        pLista->pPrimeiro = pLista->pUltimo;
+    }
+    else
+    {
+        pLista->pUltimo->pProx = (Apontador)malloc(sizeof(TCelulaString));
+        pLista->pUltimo = pLista->pUltimo->pProx;
+    }
+    pLista->pUltimo->caracter = pItem->caracter;
     pLista->pUltimo->pProx = NULL;
 }
 
-int LRetira(TLista *pLista, char *pItem)
-{
-    TCelula *pAux;
-    if (LEhVazia(pLista))
-        return 0;
-    *pItem = pLista->pPrimeiro->pProx->palavra;
-    pAux = pLista->pPrimeiro;
-    pLista->pPrimeiro = pLista->pPrimeiro->pProx;
-    free(pAux);
-    return 1;
-}
-
-void LImprime(TLista *pLista)
+void LImprime(String *pLista)
 {
     Apontador pAux;
-    pAux = pLista->pPrimeiro->pProx;
+    pAux = pLista->pPrimeiro;
     while (pAux != NULL)
     {
-        printf("%d\n", pAux->palavra);
+        printf("%d\n", pAux->caracter);
         pAux = pAux->pProx; /* próxima célula */
     }
+}
+
+int LRetiraTudo(String *pLista)
+{
+
+    Apontador pAux;
+    pAux = pLista->pPrimeiro;
+    while (pAux != NULL)
+    {
+        if (LEhVazia(pLista))
+        return 0;
+
+        free(pAux);
+        pAux = pAux->pProx;
+
+    }
+
+    pLista->pPrimeiro = NULL;
+    pLista->pUltimo = NULL;
+    
+    if (pLista->pPrimeiro == NULL)
+        pLista->pUltimo = NULL; /* lista vazia */
+    return 1;
 }

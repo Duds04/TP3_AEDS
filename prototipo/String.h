@@ -1,14 +1,14 @@
 #include "CelulaString.h"
 #include <stddef.h>
-#define Apontador  TCelula *
+#define Apontador  TCelulaString *
 
 typedef struct{
     Apontador pPrimeiro;
     Apontador pUltimo;
-} TLista;
+} String;
 
-void FLVazia(TLista* pLista);
-int LEhVazia(TLista* pLista);
-int LInsere(TLista* pLista, char *pItem);
-int LRetira(TLista* pLista, char *pItem);
-void LImprime(TLista* pLista);
+void FLVazia(String* pLista);
+int LEhVazia(String* pLista);
+void LInsere(String* pLista, TCelulaString *pItem);
+int LRetiraTudo(String* pLista);
+void LImprime(String* pLista);
