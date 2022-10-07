@@ -1,34 +1,64 @@
-#include "headers/Palavra.h"
+#include "./headers/Palavra.h"
 
-void Palavra_Vazia(TLista* pLista){
-    pLista->pPrimeiro = (pPalavra) malloc(sizeof(TPalavra));
+void PalavraVazia(TPalavra *pLista)
+{
+    TLinhas linhas;
+    pLista->pPrimeiro = (pLetra)malloc(sizeof(TLetra));
     pLista->pUltimo = pLista->pPrimeiro;
     pLista->pPrimeiro->pProx = NULL;
-
+    LinhaVazia(&linhas);
+    pLista->pLinhas = &linhas;
 }
 
-void Preencher(TLista* pLista, TItem *pItem){
+/*void Preencher(TLista* pLista, TLetra *pItem){
     if(pItem != " "){
-        pLista->pUltimo->pProx = (pPalavra) malloc(sizeof(TPalavra));
+        pLista->pUltimo->pProx = (pLetra) malloc(sizeof(TPalavra));
         pLista->pUltimo = pLista->pUltimo->pProx;
-        pLista->pUltimo->Item = *pItem;
+        pLista->pUltimo->Letra = *pItem;
     }
-    
+
     else{
-        pLista->pUltimo->pProx = (pPalavra) malloc(sizeof(TPalavra));
+        pLista->pUltimo->pProx = (pLetra) malloc(sizeof(TPalavra));
         pLista->pUltimo = pLista->pUltimo->pProx;
-        pLista->pUltimo->Item = *pItem;
-        
+        pLista->pUltimo->Letra = *pItem;
+
     }
     pLista->pUltimo->pProx = NULL;
 
+}*/
+
+void PreencherPalavra(TPalavra *pLista, char pItem)
+{
+    pLista->pUltimo->pProx = (pLetra)malloc(sizeof(TLetra));
+    pLista->pUltimo = pLista->pUltimo->pProx;
+    pLista->pUltimo->Letra = pItem;
+    pLista->pUltimo->pProx = NULL;
 }
 
-char Retornar_Palavra(TLista* pLista){
-
+TPalavra RetornarPalavra(TPalavra pLista)
+{
+    return pLista;
 }
 
-void Imprime_Cadeia(TLista* pLista){
-
+void ImprimeCadeia(TPalavra *pLista)
+{
+    pLetra pAux;
+    pAux = pLista->pPrimeiro->pProx;
+    while (pAux != NULL)
+    {
+        printf("%c", pAux->Letra);
+        pAux = pAux->pProx; /* próxima célula */
+    }
 }
 
+void ImprimePalavra(TPalavra *pLista)
+{
+    pLetra pAux;
+    pAux = pLista->pPrimeiro->pProx;
+    while (pAux != NULL)
+    {
+        printf("%c", pAux->Letra);
+        ImprimeLinhas(pLista->pLinhas);
+        pAux = pAux->pProx; /* próxima célula */
+    }
+}

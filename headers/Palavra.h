@@ -1,30 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Linhas.h"
 
-typedef struct {
-    char letra; 
+typedef struct Celula_Letra* pLetra;
+typedef struct Celula_Letra{
+    char Letra; //  char que representa a letra da palavra
+    struct Celula_Letra* pProx; // apontador pra prox Celula
 }TLetra;
 
-typedef struct Celula_Palavra* pPalavra; 
-typedef struct Celula_Palavra{
-    TLetra sLetra; // struct TLetra que possui a letra
-    struct Celula_Palavra* pProx; // apontador pra prox Celula
-}TPalavra;
-
 typedef struct {
-    pPalavra pPrimeiro;
-    pPalavra pUltimo;
-} TLista;
+    pLetra pPrimeiro;
+    pLetra pUltimo;
+    TLinhas* pLinhas;
+} TPalavra;
 
-<<<<<<< Updated upstream
-void FLVazia(TPalavra* pLista);
-int LEhVazia(TPalavra* pLista);
-int LInsere(TPalavra* pLista, TLetra *pItem);
-int LRetira(TPalavra* pLista, TLetra *pItem);
-void LImprime(TPalavra* pLista);
-=======
-void Palavra_Vazia(TLista* pLista);             // Cria uma nova lista de caracteres
-void Preencher(TLista* pLista, TItem *pItem);    // Coloca um novo caracter no final
-char Retornar_Palavra(TLista* pLista);          // return cadeia inteira(palavra)
-void Imprime_Cadeia(TLista* pLista);            // imprime a cadeia inteira
->>>>>>> Stashed changes
+void PalavraVazia(TPalavra* pLista);             // Cria uma nova lista de caracteres
+void PreencherPalavra(TPalavra* pLista, char pItem);    // Coloca um novo caracter no final
+TPalavra RetornarPalavra(TPalavra pLista);          // return cadeia inteira(palavra)
+void ImprimePalavra(TPalavra* pLista);           //imprime a palavra com as linhas onde ela aparece
+void ImprimeCadeia(TPalavra* pLista);           // imprime a cadeia inteira
+
