@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// #include "ListaPalavras.h"
-
 typedef struct {
     //lista do tipo encadeada tmn 26  
     int ultimo;

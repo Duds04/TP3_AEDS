@@ -17,4 +17,3 @@ void PreencherPalavra(TPalavra* pLista, char pItem);    // Coloca um novo caract
 TPalavra RetornarPalavra(TPalavra pLista);          // return cadeia inteira(palavra)
 void ImprimePalavra(TPalavra* pLista);           //imprime a palavra com as linhas onde ela aparece
 void ImprimeCadeia(TPalavra* pLista);           // imprime a cadeia inteira
-
