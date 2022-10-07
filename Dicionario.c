@@ -1,4 +1,5 @@
 #include "./headers/Dicionario.h"
+#include "./headers/Palavra.h"
 int inicializaDicionario(Dicionario *dicionario /*lista de palavras para serem adicionadas*/)
 {
     printf("0");
