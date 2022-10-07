@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Celula* Apontador;
+typedef struct Celula_LP *Apontador_celula;
 
-typedef struct Celula{
+typedef struct Celula_LP{
 
     /* TAD da palavra */
     
-    struct Celula* pProx;
+    struct Celula_LP* pProx; // Ponteiro para próxima celula
 }TCelula;
-
