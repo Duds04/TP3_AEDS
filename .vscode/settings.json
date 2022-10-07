@@ -2,6 +2,7 @@
     "files.associations": {
         "dicionario.h": "c",
         "stdio.h": "c",
-        "celulastring.h": "c"
+        "celulastring.h": "c",
+        "palavra.h": "c"
     }
 }
