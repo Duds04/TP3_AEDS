@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include "../prototipo/String.h"
-
 // #include "ListaPalavras.h"
 
 typedef struct {
