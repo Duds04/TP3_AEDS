@@ -12,13 +12,13 @@ int LPIniciaLista(TListaDePalavras *pLista)
     return 1;
 }
 
-int LPInsereFinal(TListaDePalavras *pLista, TPalavra palavra)
+int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra)
 {
     printf("\nEntrou");
 
-    pLista->pUltimo->pProx = (PointerCelula)malloc(sizeof(TCelula));
+    pLista->pUltimo->pProx = (PointerCelula) malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pUltimo->pProx;
-    pLista->pUltimo->ItemPalavra = palavra;
+    pLista->pUltimo->ItemPalavra = *palavra;
     pLista->pUltimo->pProx = NULL;
     printf("\nEntrou");
     return 1;
