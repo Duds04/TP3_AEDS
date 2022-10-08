@@ -4,10 +4,8 @@
 
 typedef struct TCelulaDicionario* pCelulaDicionario;
 typedef struct TCelulaDicionario{
-
     TListaDePalavras Lista; //  Lista de palavras
     struct TCelulaDicionario* pProx; // apontador pra prox Lista de palavras
-
 }TDicionario;
 
 typedef struct {
@@ -17,9 +15,9 @@ typedef struct {
     pCelulaDicionario pUltimo;
 }Dicionario;
 
-void DicionarioVazio(Dicionario* pDicionario);     //cria celula  cabeça das listas
-void CriaLista(Dicionario* pDicionario, TListaDePalavras *pLista);   //adiciona a prox lista
+void InicializaDicionario(Dicionario* pDicionario);     //cria celula  cabeça das listas
+void CriaListasPorLetra(Dicionario* pDicionario);   //adiciona as listas
 int ConstroiDicionario(Dicionario* pDicionario, char* pTexto);
-int ExibirListaPorLetra(Dicionario* pDicionario, char letra);
-int MostrarPlavras(Dicionario* pDicionario);
-int AnalisaArquivo(Dicionario* pDicionario, char* pTexto);
+void ExibirListaPorLetra(Dicionario* pDicionario, char letra);
+void MostrarPlavras(Dicionario* pDicionario);
+// void AnalisaArquivo(Dicionario* pDicionario, char* pTexto);

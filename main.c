@@ -10,9 +10,38 @@ int main()
     printf("\n Rodando programa...\n\n");
 
     // arquivo de entrada tem que estar na pasta entradas do programa
-    AnalisaArquivo(ptrDicionario, "./entradas/gabriel.txt");
+    // ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
 
-    // TLetra guarda;
+
+    TLetra b;
+    TLetra x;
+    TPalavra guarda;
+    char g;
+
+    LPalavraVazia(&guarda);
+
+    for (int j = 0; j < 5; j++)
+    {
+        scanf(" %c", &g);
+        LPreencherPalavra(&guarda, g);
+    }
+
+    LImprimeCadeia(&guarda);
+
+    printf("\n1");
+    InicializaDicionario(ptrDicionario);
+
+    printf("\n2\n");
+    pCelulaDicionario pAux;
+    pAux = ptrDicionario->pPrimeiro;
+
+    printf("\n3\n");
+    CriaListasPorLetra(ptrDicionario);
+    LPInsereFinal(&(pAux->Lista), guarda); // dando pau
+
+
+
+    /* TLetra guarda;
     // TLetra x;
     // TPalavra b;
     // char g;
@@ -29,7 +58,7 @@ int main()
     // LImprimeCadeia(&b);
 
     // LDeletaTudo(&b);
-    // LImprimeCadeia(&b);
+     LImprimeCadeia(&b);*/
 
     return 0;
 }

@@ -1,37 +1,38 @@
 #include "./headers/Dicionario.h"
 
-void DicionarioVazio(Dicionario *pDicionario)
+// criando dicionario vazio com celula cabeca
+void InicializaDicionario(Dicionario *pDicionario)
 {
     pDicionario->pPrimeiro = (pCelulaDicionario)malloc(sizeof(TDicionario));
     pDicionario->pUltimo = pDicionario->pPrimeiro;
     pDicionario->pUltimo->pProx = NULL;
 }
 
-void CriaLista(Dicionario *pDicionario, TListaDePalavras *pLista)
+//Criando as listas pras 26 letras de A até Z
+void CriaListasPorLetra(Dicionario *pDicionario)
 {
     for (int i = 0; i < 26; i++)
     {
+        TListaDePalavras pLista;
+        LPIniciaLista(&pLista);
         pDicionario->pUltimo->pProx = (pCelulaDicionario)malloc(sizeof(TDicionario));
         pDicionario->pUltimo = pDicionario->pUltimo->pProx;
-        pDicionario->pUltimo->Lista = *pLista;
+        pDicionario->pUltimo->Lista = pLista;
         pDicionario->pUltimo->pProx = NULL;
         if(i == 12) pDicionario->pMeio = pDicionario->pUltimo; // ponteiro meio aponta para a Letra "M"
     }
 }
 
-int InicializaDicionario(Dicionario *pDicionario /*lista de palavras para serem adicionadas*/)
-{
-    printf("0");
-    return 1;
-}
 
-int AnalisaArquivo(Dicionario *pDicionario, char *pTexto)
+int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
 {
     FILE *arquivo;
     int contLinha = 1;
     char c, primeiraLetra;
-    TPalavra guarda;
-    LPalavraVazia(&guarda);
+    TPalavra guarda; // variavel para armazenar palavra por palavra do texto
+    LPalavraVazia(&guarda); // inicializa guarda
+    pCelulaDicionario pAux;
+    pAux = pDicionario->pPrimeiro;
 
     if ((arquivo = fopen(pTexto, "r")) != NULL)
     {
@@ -50,6 +51,140 @@ int AnalisaArquivo(Dicionario *pDicionario, char *pTexto)
                 primeiraLetra = (guarda.pPrimeiro)->pProx->Letra;
                 printf("%c \n", primeiraLetra);
 
+                switch (primeiraLetra)
+                {
+                case 'a':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    break;
+                case 'b':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    break;
+                case 'c':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    break;
+                case 'd':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'e':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'f':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'g':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'h':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'i':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'j':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'k':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'l':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'm':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'n':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'o':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'p':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'q':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'r':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 's':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 't':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'u':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'v':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'w':
+                    
+                    break;
+                case 'x':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'y':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                case 'z':
+                    // LPInsereFinal(&(pAux->Lista), guarda);
+                    pAux = pAux->pProx;
+                    
+                    break;
+                default:
+                    printf("Carecter informadao inválido %c", c);
+                    return 0;
+                    break;
+                }
+
+                // LImprimeCadeia(&guarda);
                 LDeletaTudo(&guarda);
             }
             else
@@ -60,8 +195,6 @@ int AnalisaArquivo(Dicionario *pDicionario, char *pTexto)
                 //  printf("%c", c);
             }
         }
-        // imprimindo qnt de linhas para teste (funcionalidade provisoria)
-        printf("\nLinhas: %i\n", contLinha);
     }
     else
     {
@@ -72,7 +205,7 @@ int AnalisaArquivo(Dicionario *pDicionario, char *pTexto)
     fclose(arquivo);
 }
 
-int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
+int ConstroiDicionario22(Dicionario *pDicionario, char *pTexto)
 {
 
     // criar uma lista encadeada pra salvar cada palavra
@@ -97,7 +230,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     //             switch (primeiraLetra)
     //             {
     //             case 'a':
-    //                 /* code */
+    //                 
     //                 break;
     //             case 'b':
     //                 /* code */
@@ -204,13 +337,20 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     return 1;
 }
 
-int ExibirListaPorLetra(Dicionario *pDicionario, char letra)
+void ExibirListaPorLetra(Dicionario *pDicionario, char letra)
 {
     printf("0");
-    return 1;
+    // return 1;
 }
-int MostrarPlavras(Dicionario *pDicionario)
+
+void MostrarPlavras(Dicionario *pDicionario)
 {
-    printf("0");
-    return 1;
+    pCelulaDicionario pAux;
+    pAux = pDicionario->pPrimeiro->pProx;
+    if(pAux == NULL) printf("\nDicionario vazio"); 
+    while (pAux != NULL)
+    {
+        LImprimeListaPalavra(&(pAux->Lista));
+        pAux = pAux->pProx; /* próxima célula */
+    }
 }

@@ -22,8 +22,8 @@ typedef struct{
 
 /*  Cabeçalho das funções Lista de palavras    */
 
-int LP_Inicia_Lista(TListaDePalavras *pLista);
-int LP_InsereFinal(TListaDePalavras *pLista, TPalavra palavra);
-int LP_Numero_de_palavras(TListaDePalavras *pLista);
-int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra);
-void LImprime(TListaDePalavras* pLista);
+int LPIniciaLista(TListaDePalavras *pLista);
+int LPInsereFinal(TListaDePalavras *pLista, TPalavra palavra);
+int LPNumeroPalavras(TListaDePalavras *pLista);
+int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra palavra);
+void LImprimeListaPalavra(TListaDePalavras* pLista);
