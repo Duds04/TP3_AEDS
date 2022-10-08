@@ -26,3 +26,4 @@ int LP_Inicia_Lista(TListaDePalavras *pLista);
 int LP_InsereFinal(TListaDePalavras *pLista, TPalavra palavra);
 int LP_Numero_de_palavras(TListaDePalavras *pLista);
 int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra);
+void LImprime(TListaDePalavras* pLista);

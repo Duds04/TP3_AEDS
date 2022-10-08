@@ -56,8 +56,13 @@ void LImprime(TListaDePalavras* pLista){
  }
  
 }
-/*
-    AINDA FALTA:
-        - Remove Palavra (dada a palavra)
-        - Remove Palavra (do final)
-*/
+
+int RemovePalavraDada(){
+
+
+}
+
+int RemovePalavraFinal(){
+    
+
+}
