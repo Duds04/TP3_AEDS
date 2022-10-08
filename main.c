@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "./headers/Dicionario.h"
-#include "./headers/Palavra.h"
+// #include "./headers/Palavra.h"
 
 int main()
 {
@@ -10,23 +10,26 @@ int main()
     printf("\n Rodando programa...\n\n");
 
     // arquivo de entrada tem que estar na pasta entradas do programa
-    // constroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
+    analisaArquivo(ptrDicionario, "./entradas/gabriel.txt");
 
     // TLetra guarda;
-    TLetra x;
-    TPalavra b;
-    char g;
+    // TLetra x;
+    // TPalavra b;
+    // char g;
 
-    PalavraVazia(&b);
+    // LPalavraVazia(&b);
 
-    for (int j = 0; j <= 10; j++)
-    {
-        scanf(" %c", &g);
-        Preencher(&b, g);
-    }
+    // for (int j = 0; j < 5; j++)
+    // {
+    //     scanf(" %c", &g);
+    //     LPreencherPalavra(&b, g);
+    // }
 
-    printf("Vou taca\n");
-    ImprimeCadeia(&b);
+    // printf("Vou taca\n");
+    // LImprimeCadeia(&b);
+
+    // LDeletaTudo(&b);
+    // LImprimeCadeia(&b);
 
     return 0;
 }
