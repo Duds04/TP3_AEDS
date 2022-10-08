@@ -34,7 +34,7 @@ int LP_NumeroPalavras(TListaDePalavras *pLista){
     return contador;
 }
 
-int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
+/*int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
     TPalavra PalavraCompleta = RetornarPalavra(palavra);
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
@@ -44,10 +44,20 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
         pAux = pAux->pProx;
     }
     return 0;
+}*/
+
+void LImprime(TListaDePalavras* pLista){
+
+ PointerCelula pAux;
+ pAux = pLista->pPrimeiro->pProx;
+ while (pAux != NULL) { 
+ ImprimePalavra(&(pAux->ItemPalavra));
+ pAux = pAux->pProx; /* próxima célula */
+ }
+ 
 }
 /*
     AINDA FALTA:
         - Remove Palavra (dada a palavra)
         - Remove Palavra (do final)
-        - Imprime
 */
