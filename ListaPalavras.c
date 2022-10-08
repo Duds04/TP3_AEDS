@@ -2,20 +2,18 @@
 
 /*  Implementação com célula cabeça em todas funções   */
 
-int LPIniciaLista(TListaDePalavras *pLista)
-{
+int LP_IniciaLista(TListaDePalavras *pLista){
 
-    pLista->pPrimeiro = (PointerCelula)malloc(sizeof(TCelula));
+    pLista->pPrimeiro = (PointerCelula) malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pPrimeiro;
     pLista->pUltimo->pProx = NULL;
 
     return 1;
 }
 
-int LPInsereFinal(TListaDePalavras *pLista, TPalavra palavra)
-{
+int LP_InsereFinal(TListaDePalavras *pLista, TPalavra palavra){
 
-    pLista->pUltimo->pProx = (PointerCelula)malloc(sizeof(TCelula));
+    pLista->pUltimo->pProx = (PointerCelula) malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pUltimo->pProx;
     pLista->pUltimo->ItemPalavra = palavra;
     pLista->pUltimo->pProx = NULL;
@@ -23,8 +21,7 @@ int LPInsereFinal(TListaDePalavras *pLista, TPalavra palavra)
     return 1;
 }
 
-int LPNumeroPalavras(TListaDePalavras *pLista)
-{
+int LP_NumeroPalavras(TListaDePalavras *pLista){
 
     int contador = 0;
     PointerCelula pAux;
@@ -38,20 +35,35 @@ int LPNumeroPalavras(TListaDePalavras *pLista)
     return contador;
 }
 
-// int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
-//     TPalavra PalavraCompleta = RetornarPalavra(palavra);
-//     PointerCelula pAux;
-//     pAux = pLista->pPrimeiro->pProx;
-//     while (pAux != NULL){
-//         if(PalavraCompleta == RetornarPalavra(pAux->ItemPalavra));
-//             return 1;
-//         pAux = pAux->pProx;
-//     }
-//     return 0;
-// }
-/*
-    AINDA FALTA:
-        - Remove Palavra (dada a palavra)
-        - Remove Palavra (do final)
-        - Imprime
-*/
+/*int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
+    TPalavra PalavraCompleta = RetornarPalavra(palavra);
+    PointerCelula pAux;
+    pAux = pLista->pPrimeiro->pProx;
+    while (pAux != NULL){
+        if(PalavraCompleta == RetornarPalavra(pAux->ItemPalavra));
+            return 1;
+        pAux = pAux->pProx;
+    }
+    return 0;
+}*/
+
+void LImprime(TListaDePalavras* pLista){
+
+ PointerCelula pAux;
+ pAux = pLista->pPrimeiro->pProx;
+ while (pAux != NULL) { 
+ ImprimePalavra(&(pAux->ItemPalavra));
+ pAux = pAux->pProx; /* próxima célula */
+ }
+ 
+}
+
+int RemovePalavraDada(){
+
+
+}
+
+int RemovePalavraFinal(){
+    
+
+}
