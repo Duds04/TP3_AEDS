@@ -2,29 +2,29 @@
 
 /*  Implementação com célula cabeça em todas funções   */
 
-int LP_Inicia_Lista(TLista_de_palavras *pLista){
+int LP_IniciaLista(TListaDePalavras *pLista){
 
-    pLista->pPrimeiro = (Apontador_celula) malloc(sizeof(TCelula));
+    pLista->pPrimeiro = (PointerCelula) malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pPrimeiro;
     pLista->pUltimo->pProx = NULL;
 
     return 1;
 }
 
-int LP_Insere_no_final(TLista_de_palavras *pLista/*, Tipo_palavra palavra*/){
+int LP_InsereFinal(TListaDePalavras *pLista, TPalavra palavra){
 
-    pLista->pUltimo->pProx = (Apontador_celula) malloc(sizeof(TCelula));
+    pLista->pUltimo->pProx = (PointerCelula) malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pUltimo->pProx;
-    /*pLista->pUltimo->TAD da palavra = palavra*/
+    pLista->pUltimo->ItemPalavra = palavra;
     pLista->pUltimo->pProx = NULL;
 
     return 1;
 }
 
-int LP_Numero_de_palavras(TLista_de_palavras *pLista){
+int LP_NumeroPalavras(TListaDePalavras *pLista){
 
     int contador = 0;
-    Apontador_celula pAux;
+    PointerCelula pAux;
 
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL){
@@ -34,8 +34,8 @@ int LP_Numero_de_palavras(TLista_de_palavras *pLista){
     return contador;
 }
 
-int LP_Verifica_palavra(TLista_de_palavras *pLista/*, TAD_palavra *ponteiro da palavra*/){
-    Apontador_celula pAux;
+int LP_VerificaPalavra(TListaDePalavras *pLista/*, TAD_palavra *ponteiro da palavra*/){
+    PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL){
         /*  if(pAux->""ITEM"" == ponteiro_da_palavra->""ITEM"")
