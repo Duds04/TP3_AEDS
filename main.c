@@ -10,7 +10,7 @@ int main()
     printf("\n Rodando programa...\n\n");
 
     // arquivo de entrada tem que estar na pasta entradas do programa
-    analisaArquivo(ptrDicionario, "./entradas/gabriel.txt");
+    AnalisaArquivo(ptrDicionario, "./entradas/gabriel.txt");
 
     // TLetra guarda;
     // TLetra x;
