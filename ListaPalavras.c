@@ -34,12 +34,12 @@ int LP_NumeroPalavras(TListaDePalavras *pLista){
     return contador;
 }
 
-int LP_VerificaPalavra(TListaDePalavras *pLista/*, TAD_palavra *ponteiro da palavra*/){
+int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra){
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL){
-        /*  if(pAux->""ITEM"" == ponteiro_da_palavra->""ITEM"")
-            return 1;   */
+        /*if(pAux->ItemPalavra->pPrimeiro == palavra->pPrimeiro)
+            return 1; */
         pAux = pAux->pProx;
     }
     return 0;
@@ -48,6 +48,5 @@ int LP_VerificaPalavra(TListaDePalavras *pLista/*, TAD_palavra *ponteiro da pala
     AINDA FALTA:
         - Remove Palavra (dada a palavra)
         - Remove Palavra (do final)
-        - Verifica Palavra (dada a palavra, verifica se já existe na lista)
         - Imprime
 */
