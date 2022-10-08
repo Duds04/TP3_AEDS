@@ -7,6 +7,7 @@ typedef struct Celula_LP *PointerCelula;
 typedef struct Celula_LP{
 
     TPalavra ItemPalavra;
+
     struct Celula_LP* pProx; // Ponteiro para próxima celula
 
 }TCelula;
@@ -24,4 +25,4 @@ typedef struct{
 int LP_Inicia_Lista(TListaDePalavras *pLista);
 int LP_InsereFinal(TListaDePalavras *pLista, TPalavra palavra);
 int LP_Numero_de_palavras(TListaDePalavras *pLista);
-int LP_Verifica_palavra(TListaDePalavras *pLista/*, TAD_palavra *ponteiro da palavra*/);
+int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra);

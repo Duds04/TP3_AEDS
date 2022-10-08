@@ -34,12 +34,13 @@ int LP_NumeroPalavras(TListaDePalavras *pLista){
     return contador;
 }
 
-int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra){
+int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
+    TPalavra PalavraCompleta = RetornarPalavra(palavra);
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL){
-        /*if(pAux->ItemPalavra->pPrimeiro == palavra->pPrimeiro)
-            return 1; */
+        if(PalavraCompleta == RetornarPalavra(pAux->ItemPalavra));
+            return 1;
         pAux = pAux->pProx;
     }
     return 0;
