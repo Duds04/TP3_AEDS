@@ -12,7 +12,7 @@ typedef struct {
     pLinha pUltimo;
 }TLinhas;
 
-void LinhaVazia(TLinhas* plista);             // Cria uma nova linha
+void LinhaVazia(TLinhas* pLista);             // Cria uma nova linha
 void InsereLinha(TLinhas* pLista, int pItem);    // Coloca uma nova linha na palavra
 TLinhas RetornarLinha(TLinhas pLista);          // return cadeia inteira(palavra)
 void ImprimeLinhas(TLinhas* pLista);

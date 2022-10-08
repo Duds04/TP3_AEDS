@@ -1,6 +1,6 @@
 #include "./headers/Palavra.h"
 
-void PalavraVazia(TPalavra *pLista)
+void LPalavraVazia(TPalavra *pLista)
 {
     TLinhas linhas;
     pLista->pPrimeiro = (pLetra)malloc(sizeof(TLetra));
@@ -10,40 +10,24 @@ void PalavraVazia(TPalavra *pLista)
     pLista->pLinhas = &linhas;
 }
 
-/*void Preencher(TLista* pLista, TLetra *pItem){
-    if(pItem != " "){
-        pLista->pUltimo->pProx = (pLetra) malloc(sizeof(TPalavra));
-        pLista->pUltimo = pLista->pUltimo->pProx;
-        pLista->pUltimo->Letra = *pItem;
-    }
-
-    else{
-        pLista->pUltimo->pProx = (pLetra) malloc(sizeof(TPalavra));
-        pLista->pUltimo = pLista->pUltimo->pProx;
-        pLista->pUltimo->Letra = *pItem;
-
-    }
-    pLista->pUltimo->pProx = NULL;
-
-}*/
-
-void PreencherPalavra(TPalavra *pLista, char pItem)
+void LPreencherPalavra(TPalavra *pLista, char Item)
 {
     pLista->pUltimo->pProx = (pLetra)malloc(sizeof(TLetra));
     pLista->pUltimo = pLista->pUltimo->pProx;
-    pLista->pUltimo->Letra = pItem;
+    pLista->pUltimo->Letra = Item;
     pLista->pUltimo->pProx = NULL;
 }
 
-TPalavra RetornarPalavra(TPalavra pLista)
+TPalavra LRetornarPalavra(TPalavra Lista)
 {
-    return pLista;
+    return Lista;
 }
 
-void ImprimeCadeia(TPalavra *pLista)
+void LImprimeCadeia(TPalavra *pLista)
 {
     pLetra pAux;
     pAux = pLista->pPrimeiro->pProx;
+    if(pAux == NULL) printf("\nPalavra vazia"); //Printando que a palavra não existe tá vazia
     while (pAux != NULL)
     {
         printf("%c", pAux->Letra);
@@ -51,7 +35,7 @@ void ImprimeCadeia(TPalavra *pLista)
     }
 }
 
-void ImprimePalavra(TPalavra *pLista)
+void LImprimePalavra(TPalavra *pLista)
 {
     pLetra pAux;
     pAux = pLista->pPrimeiro->pProx;
@@ -60,5 +44,21 @@ void ImprimePalavra(TPalavra *pLista)
         printf("%c", pAux->Letra);
         ImprimeLinhas(pLista->pLinhas);
         pAux = pAux->pProx; /* próxima célula */
+    }
+}
+
+int LEhVazia(TPalavra *pLista)
+{
+    return (pLista->pPrimeiro == pLista->pUltimo);
+}
+
+void LDeletaTudo(TPalavra *pLista)
+{
+    TLetra *pAux;
+    while (!LEhVazia(pLista))
+    {
+        pAux = pLista->pPrimeiro;
+        pLista->pPrimeiro = pLista->pPrimeiro->pProx;
+        free(pAux);
     }
 }

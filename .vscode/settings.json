@@ -3,6 +3,9 @@
         "dicionario.h": "c",
         "stdio.h": "c",
         "celulastring.h": "c",
-        "palavra.h": "c"
+        "palavra.h": "c",
+        "linhas.h": "c",
+        "listapalavras.h": "c",
+        "stdlib.h": "c"
     }
 }

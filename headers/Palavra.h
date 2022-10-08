@@ -12,8 +12,10 @@ typedef struct {
     TLinhas* pLinhas;
 } TPalavra;
 
-void PalavraVazia(TPalavra* pLista);             // Cria uma nova lista de caracteres
-void PreencherPalavra(TPalavra* pLista, char pItem);    // Coloca um novo caracter no final
-TPalavra RetornarPalavra(TPalavra pLista);          // return cadeia inteira(palavra)
-void ImprimePalavra(TPalavra* pLista);           //imprime a palavra com as linhas onde ela aparece
-void ImprimeCadeia(TPalavra* pLista);           // imprime a cadeia inteira
+void LPalavraVazia(TPalavra* pLista);             // Cria uma nova lista de caracteres
+void LPreencherPalavra(TPalavra* pLista, char Item);    // Coloca um novo caracter no final
+TPalavra LRetornarPalavra(TPalavra Lista);          // return cadeia inteira(palavra)
+void LImprimePalavra(TPalavra* pLista);           //imprime a palavra com as linhas onde ela aparece
+void LImprimeCadeia(TPalavra* pLista);           // imprime a cadeia inteira
+void LDeletaTudo(TPalavra *pLista);
+int LEhVazia(TPalavra *pLista);

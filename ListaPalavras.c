@@ -27,8 +27,9 @@ int LP_NumeroPalavras(TListaDePalavras *pLista){
     PointerCelula pAux;
 
     pAux = pLista->pPrimeiro->pProx;
-    while (pAux != NULL){
-        contador++;                 /*  Esta função percorre toda a lista somando +1 no contador até o ultimo item   */
+    while (pAux != NULL)
+    {
+        contador++; /*  Esta função percorre toda a lista somando +1 no contador até o ultimo item   */
         pAux = pAux->pProx;
     }
     return contador;
