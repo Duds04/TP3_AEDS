@@ -47,18 +47,18 @@ void LImprimePalavra(TPalavra *pLista)
     }
 }
 
-int LEhVazia(TPalavra *pLista)
-{
-    return (pLista->pPrimeiro == pLista->pUltimo);
-}
+// int LEhVazia(TPalavra *pLista)
+// {
+//     return (pLista->pPrimeiro == pLista->pUltimo);
+// }
 
-void LDeletaTudo(TPalavra *pLista)
-{
-    TLetra *pAux;
-    while (!LEhVazia(pLista))
-    {
-        pAux = pLista->pPrimeiro;
-        pLista->pPrimeiro = pLista->pPrimeiro->pProx;
-        free(pAux);
-    }
-}
+// void LDeletaTudo(TPalavra *pLista)
+// {
+//     TLetra *pAux;
+//     while (!LEhVazia(pLista))
+//     {
+//         pAux = pLista->pPrimeiro;
+//         pLista->pPrimeiro = pLista->pPrimeiro->pProx;
+//         free(pAux);
+//     }
+// }

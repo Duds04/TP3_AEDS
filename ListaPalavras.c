@@ -14,7 +14,6 @@ int LPIniciaLista(TListaDePalavras *pLista)
 
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra)
 {
-    printf("\nEntrou");
 
     pLista->pUltimo->pProx = (PointerCelula) malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pUltimo->pProx;

@@ -11,33 +11,29 @@ int main()
 
     // arquivo de entrada tem que estar na pasta entradas do programa
     // ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
+    ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
+    MostrarPlavras(ptrDicionario);
 
+    // LPalavraVazia(&guarda);
 
-    TLetra b;
-    TLetra x;
-    TPalavra guarda;
-    char g;
+    // for (int j = 0; j < 5; j++)
+    // {
+    //     scanf(" %c", &g);
+    //     LPreencherPalavra(&guarda, g);
+    // }
 
-    LPalavraVazia(&guarda);
+    // LImprimeCadeia(&guarda);
 
-    for (int j = 0; j < 5; j++)
-    {
-        scanf(" %c", &g);
-        LPreencherPalavra(&guarda, g);
-    }
+    // printf("\n1");
+    // InicializaDicionario(ptrDicionario);
 
-    LImprimeCadeia(&guarda);
+    // printf("\n2\n");
+    // pCelulaDicionario pAux;
+    // pAux = ptrDicionario->pPrimeiro;
 
-    printf("\n1");
-    InicializaDicionario(ptrDicionario);
-
-    printf("\n2\n");
-    pCelulaDicionario pAux;
-    pAux = ptrDicionario->pPrimeiro;
-
-    printf("\n3\n");
-    CriaListasPorLetra(ptrDicionario);
-    LPInsereFinal(&(pAux->Lista), &guarda); // dando pau
+    // printf("\n3\n");
+    // CriaListasPorLetra(ptrDicionario);
+    // LPInsereFinal(&(pAux->Lista), &guarda); // dando pau
 
     printf("\n4\n");
     LImprimeListaPalavra(&(pAux->Lista));
