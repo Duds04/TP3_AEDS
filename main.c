@@ -37,7 +37,7 @@ int main()
 
     printf("\n3\n");
     CriaListasPorLetra(ptrDicionario);
-    LPInsereFinal(&(pAux->Lista), guarda); // dando pau
+    LPInsereFinal(&(pAux->Lista), &guarda); // dando pau
 
 
 

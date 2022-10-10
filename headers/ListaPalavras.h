@@ -27,3 +27,4 @@ int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra);
 int LPNumeroPalavras(TListaDePalavras *pLista);
 int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra palavra);
 void LImprimeListaPalavra(TListaDePalavras* pLista);
+int RemovePalavraFinal(TListaDePalavras *pLista);

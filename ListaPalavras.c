@@ -67,6 +67,17 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
 
 // }
 
-// int RemovePalavraFinal(){
-
-// }
+int RemovePalavraFinal(TListaDePalavras *pLista){
+    int NumeroPalavras = LPNumeroPalavras(pLista);
+    int cont;
+    PointerCelula pAux;
+    PointerCelula pAux2;
+    pAux = pLista->pPrimeiro->pProx;
+    for(cont=0;cont<(NumeroPalavras-1); cont++){
+        pAux = pAux->pProx;
+    }
+    pAux2 = pAux->pProx;
+    pAux->pProx = NULL;
+    free(pAux2);
+    return 1;
+}
