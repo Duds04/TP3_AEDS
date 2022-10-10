@@ -39,17 +39,16 @@ int LPNumeroPalavras(TListaDePalavras *pLista)
     return contador;
 }
 
-/*int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
-    TPalavra PalavraCompleta = RetornarPalavra(palavra);
+int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL){
-        if(PalavraCompleta == RetornarPalavra(pAux->ItemPalavra));
+        if(strcmp(palavra.Palavra, pAux->ItemPalavra.Palavra));
             return 1;
         pAux = pAux->pProx;
     }
     return 0;
-}*/
+}
 
 void LImprimeListaPalavra(TListaDePalavras *pLista)
 {
@@ -58,7 +57,7 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL)
     {
-        LImprimePalavra(&(pAux->ItemPalavra));
+        printf("%d\n", pAux->ItemPalavra.Palavra);
         pAux = pAux->pProx; /* próxima célula */
     }
 }
