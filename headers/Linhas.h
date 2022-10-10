@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct CelulaLinha* pTipoLinha; 
 typedef struct CelulaLinha{
@@ -8,11 +9,15 @@ typedef struct CelulaLinha{
 }TCelulaLinha;
 
 typedef struct {
+<<<<<<< Updated upstream
     pTipoLinha pPrimeiro;
     pTipoLinha pUltimo;
+=======
+    pTipoLinha pPrimeiro;       // Primeira linha que a palavra aparece
+    pTipoLinha pUltimo;         // Ultima linha que a palavra aparece
+>>>>>>> Stashed changes
 }TLinhas;
 
-void LinhaVazia(TLinhas* pLista);             // Cria uma nova linha
-void InsereLinha(TLinhas* pLista, int pItem);    // Coloca uma nova linha na palavra
-TLinhas RetornarLinha(TLinhas pLista);          // return cadeia inteira(palavra)
-void ImprimeLinhas(TLinhas* pLista);
+void InsereLinha(TLinhas* pLinha, int Item);    // Coloca uma nova linha na palavra
+TLinhas RetornarLinha(TLinhas Linha);          // return linha
+void ImprimeLinhas(TLinhas* pLinha);            // Imprimir as linhas
