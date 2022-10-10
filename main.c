@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 #include "./headers/Dicionario.h"
 // #include "./headers/Palavra.h"
@@ -61,4 +61,4 @@ int main()
      LImprimeCadeia(&b);*/
 
     return 0;
-}
+}*/

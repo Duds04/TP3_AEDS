@@ -1,21 +1,12 @@
 #include "Linhas.h"
 
-typedef struct Celula_Letra* pLetra;
-typedef struct Celula_Letra{
-    char Letra; //  char que representa a letra da palavra
-    struct Celula_Letra* pProx; // apontador pra prox Celula
-}TLetra;
-
 typedef struct {
-    pLetra pPrimeiro;
-    pLetra pUltimo;
-    TLinhas* pLinhas;
-} TPalavra;
+    char* Palavra; //  char que representa a Palavra
+    pListaLinha pLinhas; // ponteiro pras linhas
+}TPalavra;
 
-void LPalavraVazia(TPalavra* pLista);             // Cria uma nova lista de caracteres
-void LPreencherPalavra(TPalavra* pLista, char Item);    // Coloca um novo caracter no final
-TPalavra LRetornarPalavra(TPalavra Lista);          // return cadeia inteira(palavra)
-void LImprimePalavra(TPalavra* pLista);           //imprime a palavra com as linhas onde ela aparece
-void LImprimeCadeia(TPalavra* pLista);           // imprime a cadeia inteira
-void LDeletaTudo(TPalavra *pLista);
-int LEhVazia(TPalavra *pLista);
+void LPalavraVazia(TPalavra* pPalavra);             // Cria uma Palavra vazia
+void LPreencherPalavra(TPalavra* pPalavra, char *Item);    //Incere uma palavra
+TPalavra LRetornarPalavra(TPalavra Palavra);          // return cadeia inteira(palavra)
+void LImprimeCadeia(TPalavra* pPalavra);           // imprime a cadeia inteira
+void LImprimePalavra(TPalavra* pPalavra);           //imprime a palavra com as linhas onde ela aparece

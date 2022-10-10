@@ -1,50 +1,31 @@
 #include "./headers/Palavra.h"
 
-void LPalavraVazia(TPalavra *pLista)
-{
-    TLinhas linhas;
-    pLista->pPrimeiro = (pLetra)malloc(sizeof(TLetra));
-    pLista->pUltimo = pLista->pPrimeiro;
-    pLista->pPrimeiro->pProx = NULL;
-    LinhaVazia(&linhas);
-    pLista->pLinhas = &linhas;
+void LPalavraVazia(TPalavra *pPalavra)
+{   
+    pPalavra->pLinhas = (pListaLinha)malloc(sizeof(TLinhas));
 }
 
-void LPreencherPalavra(TPalavra *pLista, char Item)
+void LPreencherPalavra(TPalavra* pPalavra, char *Item)
 {
-    pLista->pUltimo->pProx = (pLetra)malloc(sizeof(TLetra));
-    pLista->pUltimo = pLista->pUltimo->pProx;
-    pLista->pUltimo->Letra = Item;
-    pLista->pUltimo->pProx = NULL;
+    pPalavra->Palavra = (char*)malloc(strlen(Item)*sizeof(char));
+    strcpy(pPalavra->Palavra, Item);
 }
 
-TPalavra LRetornarPalavra(TPalavra Lista)
+TPalavra LRetornarPalavra(TPalavra Palavra)
 {
-    return Lista;
+    return Palavra;
 }
 
-void LImprimeCadeia(TPalavra *pLista)
-{
-    pLetra pAux;
-    pAux = pLista->pPrimeiro->pProx;
-    if(pAux == NULL) printf("\nPalavra vazia"); //Printando que a palavra não existe tá vazia
-    while (pAux != NULL)
-    {
-        printf("%c", pAux->Letra);
-        pAux = pAux->pProx; /* próxima célula */
-    }
+void LImprimeCadeia(TPalavra *pPalavra)
+{   
+    printf("%s\n\n", pPalavra->Palavra);
+    
 }
 
-void LImprimePalavra(TPalavra *pLista)
+void LImprimePalavra(TPalavra *pPalavra)
 {
-    pLetra pAux;
-    pAux = pLista->pPrimeiro->pProx;
-    while (pAux != NULL)
-    {
-        printf("%c", pAux->Letra);
-        ImprimeLinhas(pLista->pLinhas);
-        pAux = pAux->pProx; /* próxima célula */
-    }
+    printf("\n\n%s\n\n", pPalavra->Palavra);
+    ImprimeLinhas(pPalavra->pLinhas);
 }
 
 int LEhVazia(TPalavra *pLista)
