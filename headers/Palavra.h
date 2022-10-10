@@ -2,7 +2,7 @@
 
 typedef struct CelulaPalavra{
     char* Palavra; //  char que representa a Palavra
-    TLinhas* pLinhas; // ponteiro pras linhas
+    pListaLinha pLinhas; // ponteiro pras linhas
 }TPalavra;
 
 void LPalavraVazia(TPalavra* pPalavra);             // Cria uma Palavra vazia

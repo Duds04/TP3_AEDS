@@ -8,11 +8,12 @@ typedef struct CelulaLinha{
     struct CelulaLinha* pProx; // apontador pra prox linha q tem essa palavra
 }TCelulaLinha;
 
-typedef struct {
+typedef struct ListaLinhas* pListaLinha; 
+typedef struct ListaLinhas{
     pTipoLinha pPrimeiro;       // Primeira linha que a palavra aparece
     pTipoLinha pUltimo;         // Ultima linha que a palavra aparece
 }TLinhas;
 
-void InsereLinha(TLinhas* pLinha, int Item);    // Coloca uma nova linha na palavra
+void InsereLinha(TLinhas* pLinha, int Linha);    // Coloca uma nova linha na palavra
 TLinhas RetornarLinha(TLinhas Linha);          // return linha
 void ImprimeLinhas(TLinhas* pLinha);            // Imprimir as linhas

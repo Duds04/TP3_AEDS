@@ -2,10 +2,12 @@
 
 void LPalavraVazia(TPalavra *pPalavra)
 {
-    pPalavra->pLinhas->pPrimeiro = (pTipoLinha)malloc(sizeof(TLinhas));
+    printf("Criou palavra vazia\n");
+    pPalavra->pLinhas->pPrimeiro = (pTipoLinha)malloc(sizeof(TCelulaLinha));
+    printf("Criou palavra vazia\n");
     pPalavra->pLinhas->pUltimo = pPalavra->pLinhas->pPrimeiro;
     pPalavra->pLinhas->pPrimeiro->pProx = NULL;
-    printf("Criou palavra vazia\n");
+    
     
 }
 
