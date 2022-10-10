@@ -27,3 +27,19 @@ void LImprimePalavra(TPalavra *pPalavra)
     printf("\n\n%s\n\n", pPalavra->Palavra);
     ImprimeLinhas(pPalavra->pLinhas);
 }
+
+int LEhVazia(TPalavra *pLista)
+{
+    return (pLista->pPrimeiro == pLista->pUltimo);
+}
+
+void LDeletaTudo(TPalavra *pLista)
+{
+    TLetra *pAux;
+    while (!LEhVazia(pLista))
+    {
+        pAux = pLista->pPrimeiro;
+        pLista->pPrimeiro = pLista->pPrimeiro->pProx;
+        free(pAux);
+    }
+}

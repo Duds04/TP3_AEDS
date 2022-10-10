@@ -1,5 +1,5 @@
 all: 
-	gcc	Dicionario.c ./headers/Dicionario.h	Palavra.c ./headers/Palavra.h  main.c	-o	exec
+	gcc ./headers/Palavra.h	./headers/Linhas.h	./headers/ListaPalavras.h	./headers/Dicionario.h		Linhas.c	Palavra.c	ListaPalavras.c	Dicionario.c  main.c	-o	exec
 	./exec 
 clean:
 	rm -rf *.o ./exec

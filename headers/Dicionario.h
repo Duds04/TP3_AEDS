@@ -1,13 +1,23 @@
+// #include "Palavra.h"
+#include "ListaPalavras.h"
 #include <stdio.h>
 
-// #include "ListaPalavras.h"
+typedef struct TCelulaDicionario* pCelulaDicionario;
+typedef struct TCelulaDicionario{
+    TListaDePalavras Lista; //  Lista de palavras
+    struct TCelulaDicionario* pProx; // apontador pra prox Lista de palavras
+}TDicionario;
 
 typedef struct {
     //lista do tipo encadeada tmn 26  
-    int ultimo;
+    pCelulaDicionario pPrimeiro;
+    pCelulaDicionario pMeio; //facilitar/otimizar o acesso as listas do dicionario (aponta pra lista "M")
+    pCelulaDicionario pUltimo;
 }Dicionario;
 
-int inicializaDicionario(Dicionario* dicionario /*lista de palavras para serem adicionadas*/);
-int constroiDicionario(Dicionario* dicionario, char* texto);
-int exibirListaPorLetra(Dicionario* dicionario, char letra);
-int mostrarPlavras(Dicionario* dicionario);
+void InicializaDicionario(Dicionario* pDicionario);     //cria celula  cabeça das listas
+void CriaListasPorLetra(Dicionario* pDicionario);   //adiciona as listas
+int ConstroiDicionario(Dicionario* pDicionario, char* pTexto);
+void ExibirListaPorLetra(Dicionario* pDicionario, char letra);
+void MostrarPlavras(Dicionario* pDicionario);
+// void AnalisaArquivo(Dicionario* pDicionario, char* pTexto);

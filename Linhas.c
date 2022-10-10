@@ -23,6 +23,7 @@ TLinhas RetornarLinha(TLinhas Linha){
 void ImprimeLinhas(TLinhas* pLinha){
     pTipoLinha pAux;
     pAux = pLinha->pPrimeiro->pProx;
+
     while (pAux != NULL)
     {
         printf("%d", pAux->Linha);

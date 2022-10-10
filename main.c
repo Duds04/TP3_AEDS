@@ -1,7 +1,7 @@
 /*#include <stdio.h>
 #include <stdlib.h>
 #include "./headers/Dicionario.h"
-#include "./headers/Palavra.h"
+// #include "./headers/Palavra.h"
 
 int main()
 {
@@ -10,23 +10,55 @@ int main()
     printf("\n Rodando programa...\n\n");
 
     // arquivo de entrada tem que estar na pasta entradas do programa
-    // constroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
+    // ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
 
-    // TLetra guarda;
+
+    TLetra b;
     TLetra x;
-    TPalavra b;
+    TPalavra guarda;
     char g;
 
-    PalavraVazia(&b);
+    LPalavraVazia(&guarda);
 
-    for (int j = 0; j <= 10; j++)
+    for (int j = 0; j < 5; j++)
     {
         scanf(" %c", &g);
-        Preencher(&b, g);
+        LPreencherPalavra(&guarda, g);
     }
 
-    printf("Vou taca\n");
-    ImprimeCadeia(&b);
+    LImprimeCadeia(&guarda);
+
+    printf("\n1");
+    InicializaDicionario(ptrDicionario);
+
+    printf("\n2\n");
+    pCelulaDicionario pAux;
+    pAux = ptrDicionario->pPrimeiro;
+
+    printf("\n3\n");
+    CriaListasPorLetra(ptrDicionario);
+    LPInsereFinal(&(pAux->Lista), &guarda); // dando pau
+
+
+
+    /* TLetra guarda;
+    // TLetra x;
+    // TPalavra b;
+    // char g;
+
+    // LPalavraVazia(&b);
+
+    // for (int j = 0; j < 5; j++)
+    // {
+    //     scanf(" %c", &g);
+    //     LPreencherPalavra(&b, g);
+    // }
+
+    // printf("Vou taca\n");
+    // LImprimeCadeia(&b);
+
+    // LDeletaTudo(&b);
+     LImprimeCadeia(&b);*/
 
     return 0;
 }*/
