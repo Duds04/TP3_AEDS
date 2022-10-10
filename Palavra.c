@@ -2,27 +2,17 @@
 
 void LPalavraVazia(TPalavra *pPalavra)
 {
-<<<<<<< Updated upstream
-    pPalavra->pLinhas->pPrimeiro = (pTipoLinha)malloc(sizeof(TCelulaLinha));
-    pPalavra->pLinhas->pUltimo = pPalavra->pLinhas->pPrimeiro;
-    pPalavra->pLinhas->pPrimeiro->pProx = NULL;
-=======
     pPalavra->pLinhas->pPrimeiro = (pTipoLinha)malloc(sizeof(TLinhas));
     pPalavra->pLinhas->pUltimo = pPalavra->pLinhas->pPrimeiro;
     pPalavra->pLinhas->pPrimeiro->pProx = NULL;
     printf("Criou palavra vazia\n");
     
->>>>>>> Stashed changes
 }
 
 void LPreencherPalavra(TPalavra* pPalavra, char *Item)
 {
-<<<<<<< Updated upstream
-    pPalavra->
-=======
     pPalavra->Palavra = (char*)malloc(strlen(Item)*sizeof(char));
     strcpy(pPalavra->Palavra, Item);
->>>>>>> Stashed changes
 }
 
 TPalavra LRetornarPalavra(TPalavra Palavra)

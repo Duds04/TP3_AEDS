@@ -9,13 +9,8 @@ typedef struct CelulaLinha{
 }TCelulaLinha;
 
 typedef struct {
-<<<<<<< Updated upstream
-    pTipoLinha pPrimeiro;
-    pTipoLinha pUltimo;
-=======
     pTipoLinha pPrimeiro;       // Primeira linha que a palavra aparece
     pTipoLinha pUltimo;         // Ultima linha que a palavra aparece
->>>>>>> Stashed changes
 }TLinhas;
 
 void InsereLinha(TLinhas* pLinha, int Item);    // Coloca uma nova linha na palavra
