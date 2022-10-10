@@ -1,14 +1,8 @@
 #include "./headers/Palavra.h"
 
 void LPalavraVazia(TPalavra *pPalavra)
-{
-    printf("Criou palavra vazia\n");
-    pPalavra->pLinhas->pPrimeiro = (pTipoLinha)malloc(sizeof(TCelulaLinha));
-    printf("Criou palavra vazia\n");
-    pPalavra->pLinhas->pUltimo = pPalavra->pLinhas->pPrimeiro;
-    pPalavra->pLinhas->pPrimeiro->pProx = NULL;
-    
-    
+{   
+    pPalavra->pLinhas = (pListaLinha)malloc(sizeof(TLinhas));
 }
 
 void LPreencherPalavra(TPalavra* pPalavra, char *Item)
@@ -23,8 +17,9 @@ TPalavra LRetornarPalavra(TPalavra Palavra)
 }
 
 void LImprimeCadeia(TPalavra *pPalavra)
-{
-    printf("\n\n%s\n\n", pPalavra->Palavra);
+{   
+    printf("%s\n\n", pPalavra->Palavra);
+    
 }
 
 void LImprimePalavra(TPalavra *pPalavra)

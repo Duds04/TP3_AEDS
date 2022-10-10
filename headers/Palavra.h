@@ -1,6 +1,6 @@
 #include "Linhas.h"
 
-typedef struct CelulaPalavra{
+typedef struct {
     char* Palavra; //  char que representa a Palavra
     pListaLinha pLinhas; // ponteiro pras linhas
 }TPalavra;

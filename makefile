@@ -4,7 +4,3 @@ all:
 clean:
 	rm -rf *.o ./exec
 	clear
-
-art: 
-	gcc ./headers/Palavra.h    ./headers/Linhas.h     Linhas.c    Palavra.c     mainTestes.c   -o	exec
-	./exec 

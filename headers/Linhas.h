@@ -14,6 +14,7 @@ typedef struct ListaLinhas{
     pTipoLinha pUltimo;         // Ultima linha que a palavra aparece
 }TLinhas;
 
+void LinhaVazia(TLinhas* pLista);             // Cria uma nova linha
 void InsereLinha(TLinhas* pLinha, int Linha);    // Coloca uma nova linha na palavra
 TLinhas RetornarLinha(TLinhas Linha);          // return linha
 void ImprimeLinhas(TLinhas* pLinha);            // Imprimir as linhas
