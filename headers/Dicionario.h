@@ -18,6 +18,6 @@ typedef struct {
 void InicializaDicionario(Dicionario* pDicionario);     //cria celula  cabeça das listas
 void CriaListasPorLetra(Dicionario* pDicionario);   //adiciona as listas
 int ConstroiDicionario(Dicionario* pDicionario, char* pTexto);
-void ExibirListaPorLetra(Dicionario* pDicionario, char letra);
+int ExibirListaPorLetra(Dicionario* pDicionario, char letra);
 void MostrarPlavras(Dicionario* pDicionario);
 // void AnalisaArquivo(Dicionario* pDicionario, char* pTexto);
