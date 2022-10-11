@@ -18,7 +18,7 @@ void ImprimeLinhas(TLinhas* pLinha){
 
     while (pAux != NULL)
     {
-        printf("%d", pAux->Linha);
+        printf("[%d] ", pAux->Linha);
         pAux = pAux->pProx; /* próxima célula */
     }
 }

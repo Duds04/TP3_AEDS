@@ -23,5 +23,5 @@ typedef struct
 int LPIniciaLista(TListaDePalavras *pLista);
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra);
 int LPNumeroPalavras(TListaDePalavras *pLista);
-int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra palavra);
-void LImprimeListaPalavra(TListaDePalavras *pLista);
+int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra);
+void LImprimeListaPalavra(TListaDePalavras* pLista);
