@@ -58,13 +58,15 @@ int LPNumeroPalavras(TListaDePalavras *pLista)
 
 void LImprimeListaPalavra(TListaDePalavras *pLista)
 {
-
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
+    TPalavra* salva;
+
     while (pAux != NULL)
     {
         if(pLista->pPrimeiro != pLista->pUltimo){
-            printf("%s\n", pAux->ItemPalavra.Palavra);
+            salva = &(pAux->ItemPalavra);
+            LImprimeCadeia(salva);
             pAux = pAux->pProx; /* próxima célula */
         }
     }
