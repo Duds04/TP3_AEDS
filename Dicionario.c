@@ -11,32 +11,34 @@ void InicializaDicionario(Dicionario *pDicionario)
 //  Criando as listas pras 26 letras de A até Z
 void CriaListasPorLetra(Dicionario *pDicionario)
 {
-    TListaDePalavras pLista;
-    pDicionario->pUltimo->pProx = (pCelulaDicionario)malloc(sizeof(TDicionario));
-    pDicionario->pUltimo = pDicionario->pUltimo->pProx;
-    pDicionario->pUltimo->Lista = &pLista;
-    pDicionario->pUltimo->pProx = NULL;
-    LPIniciaLista(pDicionario->pUltimo->Lista = &pLista);
+    // TListaDePalavras pLista;
+    // pDicionario->pUltimo->pProx = (pCelulaDicionario)malloc(sizeof(TDicionario));
+    // pDicionario->pUltimo = pDicionario->pUltimo->pProx;
+    // pDicionario->pUltimo->Lista = &pLista;
+    // pDicionario->pUltimo->pProx = NULL;
+    // LPIniciaLista(pDicionario->pUltimo->Lista = &pLista);
 
 
-    char guardaPalavra[200]; // vetor auxiliar para guardar palavra
-    TPalavra salva;
-    strcpy(guardaPalavra, "teste");
+    // char guardaPalavra[200]; // vetor auxiliar para guardar palavra
+    // TPalavra salva;
+    // strcpy(guardaPalavra, "teste");
 
-    LPreencherPalavra(&salva, guardaPalavra);
-    LPInsereFinal(pDicionario->pUltimo->Lista, &salva);
+    // LPreencherPalavra(&salva, guardaPalavra);
+    // LPInsereFinal(pDicionario->pUltimo->Lista, &salva);
 
-    LImprimeListaPalavra(&pLista);
-    //      for (int i = 0; i < 26; i++)
-    // {
-    //     TListaDePalavras pLista;
-    //     LPIniciaLista(&pLista);
-    //     pDicionario->pUltimo->pProx = (pCelulaDicionario)malloc(sizeof(TDicionario));
-    //     pDicionario->pUltimo = pDicionario->pUltimo->pProx;
-    //     pDicionario->pUltimo->Lista = &pLista;
-    //     pDicionario->pUltimo->pProx = NULL;
-    //     // if(i == 12) pDicionario->pMeio = pDicionario->pUltimo; // ponteiro meio aponta para a Letra "M"
-    // }
+    // LImprimeListaPalavra(&pLista);
+         for (int i = 0; i < 26; i++) {
+        TListaDePalavras pLista;
+        LPIniciaLista(&pLista);
+        printf("Inicializou lista");
+        pDicionario->pUltimo->pProx = (pCelulaDicionario)malloc(sizeof(TDicionario));
+        pDicionario->pUltimo = pDicionario->pUltimo->pProx;
+        pDicionario->pUltimo->Lista = &pLista;
+        pDicionario->pUltimo->pProx = NULL;
+        printf("Criou dicionario\n");
+        // if(i == 12) pDicionario->pMeio = pDicionario->pUltimo; // ponteiro meio aponta para a Letra "M"
+    }
+    printf("\n\nCriou TODOS\n\n");
 }
 
 int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
