@@ -11,7 +11,7 @@ void LPalavraVazia(TPalavra *pPalavra)
 void LPreencherPalavra(TPalavra* pPalavra, char *Item)
 {
     pPalavra->Palavra = (char*)malloc(strlen(Item)*sizeof(char));
-    printf("\n\n%d\n\n", strlen(Item));
+    // printf("\n\n%d\n\n", strlen(Item));
     strcpy(pPalavra->Palavra, Item);
 }
 

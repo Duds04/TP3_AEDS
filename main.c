@@ -10,12 +10,17 @@ int main()
     printf("\n Rodando programa...\n\n");
 
     InicializaDicionario(ptrDicionario);
+    CriaListasPorLetra(ptrDicionario); // OK
     // arquivo de entrada tem que estar na pasta entradas do programa
     // ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
-    // ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
-    MostrarPlavras(ptrDicionario);
-    CriaListasPorLetra(ptrDicionario);
-   
+    
+    printf("Constroi dicionario\n");
+
+    ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
+
+    // MostrarPlavras(ptrDicionario);
+
+   /*
 
     // char guardaPalavra[200]; // vetor auxiliar para guardar palavra
     // TPalavra salva;

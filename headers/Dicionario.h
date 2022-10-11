@@ -4,7 +4,7 @@
 
 typedef struct TCelulaDicionario* pCelulaDicionario;
 typedef struct TCelulaDicionario{
-    TListaDePalavras* Lista; //  Lista de palavras
+    TListaDePalavras* pLista; //  Lista de palavras
     struct TCelulaDicionario* pProx; // apontador pra prox Lista de palavras
 }TDicionario;
 
