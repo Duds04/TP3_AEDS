@@ -2,10 +2,18 @@
 
     
 void InsereLinha(TLinhas* pLinha, int Item){
-    pLinha->pUltimo->pProx = (pTipoLinha)malloc(sizeof(TCelulaLinha));
-    pLinha->pUltimo = pLinha->pUltimo->pProx;
-    pLinha->pUltimo->Linha = Item;
-    pLinha->pUltimo->pProx = NULL;
+    pTipoLinha pAux;
+    pAux = pLinha->pPrimeiro->pProx;
+    while (pAux != NULL)
+    {
+        if(pAux->Linha == Item){
+            pLinha->pUltimo->pProx = (pTipoLinha)malloc(sizeof(TCelulaLinha));
+            pLinha->pUltimo = pLinha->pUltimo->pProx;
+            pLinha->pUltimo->Linha = Item;
+            pLinha->pUltimo->pProx = NULL;
+        }
+        pAux = pAux->pProx; /* próxima célula */
+    }
 }
 
 TLinhas RetornarLinha(TLinhas Linha){
