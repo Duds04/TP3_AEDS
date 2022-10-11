@@ -1,4 +1,4 @@
-/*#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "./headers/Dicionario.h"
 // #include "./headers/Palavra.h"
@@ -12,9 +12,6 @@ int main()
     // arquivo de entrada tem que estar na pasta entradas do programa
     // ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
 
-
-    TLetra b;
-    TLetra x;
     TPalavra guarda;
     char g;
 
