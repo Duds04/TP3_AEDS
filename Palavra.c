@@ -8,11 +8,12 @@ void LPalavraVazia(TPalavra *pPalavra)
     pPalavra->pLinhas->pPrimeiro->pProx = NULL;
 }
 
-void LPreencherPalavra(TPalavra* pPalavra, char *Item)
+void LPreencherPalavra(TPalavra* pPalavra, char *Item, int Linha)
 {
     pPalavra->Palavra = (char*)malloc(strlen(Item)*sizeof(char));
-    // printf("\n\n%d\n\n", strlen(Item));
     strcpy(pPalavra->Palavra, Item);
+    InsereLinha(pPalavra->pLinhas, Linha);
+
 }
 
 TPalavra LRetornarPalavra(TPalavra Palavra)

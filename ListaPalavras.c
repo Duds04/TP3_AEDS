@@ -14,10 +14,14 @@ int LPIniciaLista(TListaDePalavras *pLista)
 
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra)
 {
+    if(LP_VerificaPalavra(pLista, palavra) == 1){
+        return 0;
+    }
     pLista->pUltimo->pProx = (PointerCelula) malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pUltimo->pProx;
     pLista->pUltimo->ItemPalavra = *palavra;
     pLista->pUltimo->pProx = NULL;
+    free(palavra);
     return 1;
 }
 
@@ -36,12 +40,17 @@ int LPNumeroPalavras(TListaDePalavras *pLista)
     return contador;
 }
 
-int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
+int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra){
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL){
-        if(strcmp(palavra.Palavra, pAux->ItemPalavra.Palavra));
+        if(strcmp(palavra->Palavra, pAux->ItemPalavra.Palavra));{
+            InsereLinha(pAux->ItemPalavra.pLinhas, palavra->pLinhas->pUltimo->Linha);
+            free(palavra->pLinhas);
+            free(palavra->Palavra);
+            free(palavra);
             return 1;
+        }
         pAux = pAux->pProx;
     }
     return 0;
