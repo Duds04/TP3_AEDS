@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-typedef struct Celula_Linha* pLinha; 
-typedef struct Celula_Linha{
-    char Linha; //  char que representa a Linha da palavra
-    struct Celula_Linha* pProx; // apontador pra prox Celula
+typedef struct CelulaLinha* pTipoLinha; 
+typedef struct CelulaLinha{
+    int Linha; //  int que representa as linhas da palavra
+    struct CelulaLinha* pProx; // apontador pra prox linha q tem essa palavra
 }TCelulaLinha;
 
-typedef struct {
-    pLinha pPrimeiro;
-    pLinha pUltimo;
+typedef struct ListaLinhas* pListaLinha; 
+typedef struct ListaLinhas{
+    pTipoLinha pPrimeiro;       // Primeira linha que a palavra aparece
+    pTipoLinha pUltimo;         // Ultima linha que a palavra aparece
 }TLinhas;
 
-void LinhaVazia(TLinhas* pLista);             // Cria uma nova linha
-void InsereLinha(TLinhas* pLista, int pItem);    // Coloca uma nova linha na palavra
-TLinhas RetornarLinha(TLinhas pLista);          // return cadeia inteira(palavra)
-void ImprimeLinhas(TLinhas* pLista);
+void InsereLinha(TLinhas* pLinha, int Linha);    // Coloca uma nova linha na palavra
+TLinhas RetornarLinha(TLinhas Linha);          // return linha
+void ImprimeLinhas(TLinhas* pLinha);            //

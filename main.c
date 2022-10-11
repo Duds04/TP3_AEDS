@@ -9,10 +9,39 @@ int main()
     Dicionario *ptrDicionario = &dicionario;
     printf("\n Rodando programa...\n\n");
 
+    InicializaDicionario(ptrDicionario);
     // arquivo de entrada tem que estar na pasta entradas do programa
     // ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
-    ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
+    // ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
     MostrarPlavras(ptrDicionario);
+    CriaListasPorLetra(ptrDicionario);
+   
+
+    // char guardaPalavra[200]; // vetor auxiliar para guardar palavra
+    // TPalavra salva;
+    // TListaDePalavras LA;
+
+    // LPIniciaLista(&LA);
+
+    // strcpy(guardaPalavra, "teste");
+    // // printf("%s\n", guardaPalavra);
+
+    
+
+    // // salva.Palavra = guardaPalavra;
+    // LPreencherPalavra(&salva, guardaPalavra);
+    // // printf("%s\n", salva.Palavra);
+    // LPInsereFinal(&LA, &salva);
+
+    // strcpy(guardaPalavra, "teste2");
+    // LPreencherPalavra(&salva, guardaPalavra);
+    // LPInsereFinal(&LA, &salva); 
+    
+    // // LImprimeListaPalavra(&LA);
+
+
+    // CriaListasPorLetra(ptrDicionario); 
+
 
     // LPalavraVazia(&guarda);
 
@@ -35,8 +64,8 @@ int main()
     // CriaListasPorLetra(ptrDicionario);
     // LPInsereFinal(&(pAux->Lista), &guarda); // dando pau
 
-    printf("\n4\n");
-    LImprimeListaPalavra(&(pAux->Lista));
+    // printf("\n4\n");
+    // LImprimeListaPalavra(&(pAux->Lista));
 
     /* TLetra guarda;
     // TLetra x;

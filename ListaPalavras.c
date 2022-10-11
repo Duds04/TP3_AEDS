@@ -14,12 +14,10 @@ int LPIniciaLista(TListaDePalavras *pLista)
 
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra)
 {
-
     pLista->pUltimo->pProx = (PointerCelula) malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pUltimo->pProx;
     pLista->pUltimo->ItemPalavra = *palavra;
     pLista->pUltimo->pProx = NULL;
-    printf("\nEntrou");
     return 1;
 }
 
@@ -38,17 +36,16 @@ int LPNumeroPalavras(TListaDePalavras *pLista)
     return contador;
 }
 
-/*int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
-    TPalavra PalavraCompleta = RetornarPalavra(palavra);
+int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL){
-        if(PalavraCompleta == RetornarPalavra(pAux->ItemPalavra));
+        if(strcmp(palavra.Palavra, pAux->ItemPalavra.Palavra));
             return 1;
         pAux = pAux->pProx;
     }
     return 0;
-}*/
+}
 
 void LImprimeListaPalavra(TListaDePalavras *pLista)
 {
@@ -57,7 +54,7 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL)
     {
-        LImprimePalavra(&(pAux->ItemPalavra));
+        printf("%s\n", pAux->ItemPalavra.Palavra);
         pAux = pAux->pProx; /* próxima célula */
     }
 }
@@ -66,6 +63,17 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
 
 // }
 
-// int RemovePalavraFinal(){
-
-// }
+int RemovePalavraFinal(TListaDePalavras *pLista){
+    int NumeroPalavras = LPNumeroPalavras(pLista);
+    int cont;
+    PointerCelula pAux;
+    PointerCelula pAux2;
+    pAux = pLista->pPrimeiro->pProx;
+    for(cont=0;cont<(NumeroPalavras-1); cont++){
+        pAux = pAux->pProx;
+    }
+    pAux2 = pAux->pProx;
+    pAux->pProx = NULL;
+    free(pAux2);
+    return 1;
+}
