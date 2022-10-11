@@ -54,8 +54,10 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL)
     {
-        printf("%s\n", pAux->ItemPalavra.Palavra);
-        pAux = pAux->pProx; /* próxima célula */
+        if(pLista->pPrimeiro != pLista->pUltimo){
+            printf("%s\n", pAux->ItemPalavra.Palavra);
+            pAux = pAux->pProx; /* próxima célula */
+        }
     }
 }
 

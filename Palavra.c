@@ -22,7 +22,7 @@ TPalavra LRetornarPalavra(TPalavra Palavra)
 
 void LImprimeCadeia(TPalavra *pPalavra)
 {   
-    printf("%s\n\n", pPalavra->Palavra);
+    printf("%s\n", pPalavra->Palavra);
     
 }
 

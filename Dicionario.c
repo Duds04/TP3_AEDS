@@ -17,8 +17,7 @@ void CriaListasPorLetra(Dicionario *pDicionario)
 
     // LPreencherPalavra(&salva, guardaPalavra);
 
-
-         for (int i = 0; i < 26; i++)
+    for (int i = 0; i < 26; i++)
     {
         TListaDePalavras pLista;
         LPIniciaLista(&pLista);
@@ -44,8 +43,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
 
-
-     if ((arquivo = fopen(pTexto, "r")) != NULL)
+    if ((arquivo = fopen(pTexto, "r")) != NULL)
     {
         while (fscanf(arquivo, "%s%c", guardaPalavra, &c) != EOF)
         {
@@ -57,24 +55,24 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
             // Pega a primeira letra da palavra, vê em qual lista ela entraria (dentro do switc), e a partir disso verifica se a palavra já está na lista (se tiver, só adiciona o novo numero da linha)  (se não, adiciona a nova palavra na lista)
             primeiraLetra = guardaPalavra[0];
             LPreencherPalavra(&salva, guardaPalavra);
-            LImprimeCadeia(&salva);
+            // LImprimeCadeia(&salva);
 
             // erro
 
             // pDicionario->pPrimeiro->Lista;
 
-            LPInsereFinal(pAux->pLista, &salva);
+            pAux = pDicionario->pPrimeiro->pProx;
 
             // printf("%c \n", primeiraLetra);
 
             switch (primeiraLetra)
             {
             case 'a':
-                printf("\nAqui 2 \n");
-                // LPInsereFinal(&LA, &salva);
-                pAux = pAux->pProx;
+                // printf("\nAqui 2 \n");
+                LPInsereFinal(pAux->pLista, &salva);
+                // pAux = pAux->pProx;
                 break;
-            case 'b':
+            /*case 'b':
                 // LPInsereFinal(&(pAux->Lista), guarda);
                 pAux = pAux->pProx;
                 break;
@@ -194,7 +192,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
                 // LPInsereFinal(&(pAux->Lista), guarda);
                 pAux = pAux->pProx;
 
-                break;
+                break;*/
             default:
                 printf("Carecter informadao inválido %c", c);
                 // return 0;
@@ -206,16 +204,40 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     {
         fprintf(stderr, "Erro ao abrir o arquivo");
         return 0;
-    }
-
-    // LImprimeListaPalavra(&LA);
+    }    
     fclose(arquivo);
+
+    printf("\nLista: \n");
+    pAux = pDicionario->pPrimeiro->pProx;
+    LImprimeListaPalavra(pAux->pLista);
 }
 
-void ExibirListaPorLetra(Dicionario *pDicionario, char letra)
+int ExibirListaPorLetra(Dicionario *pDicionario, char letra)
 {
-    printf("0");
-    // return 1;
+    pCelulaDicionario pAux;
+
+    if (pAux == NULL)
+        printf("\nDicionario vazio\n");
+
+    pAux = pDicionario->pPrimeiro->pProx;
+    LImprimeListaPalavra(pAux->pLista);
+
+    // for (int i = 0; i < 26; i++)
+    // {
+
+    //     if(i == 0 && letra == 'a'){
+    //         LImprimeListaPalavra(pAux->pLista);
+    //         return 1;
+    //     }else if(i == 1){
+
+    //     }else if(i == 2){
+
+    //     }else if(i == 3){
+
+    //     }
+    //     pAux = pAux->pProx;
+    // }
+    return 0;
 }
 
 void MostrarPlavras(Dicionario *pDicionario)
@@ -228,8 +250,10 @@ void MostrarPlavras(Dicionario *pDicionario)
     {
         while (pAux != NULL)
         {
-            LImprimeListaPalavra(pAux->pLista);
-            pAux = pAux->pProx; /* próxima célula */
+            if(pAux->pLista->pPrimeiro != pAux->pLista->pUltimo){
+                LImprimeListaPalavra(pAux->pLista);
+                pAux = pAux->pProx; /* próxima célula */
+            }
         }
     }
 }

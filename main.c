@@ -15,8 +15,10 @@ int main()
     // ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
     
     printf("Constroi dicionario\n");
-
     ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
+
+
+    ExibirListaPorLetra(ptrDicionario, 'a');
 
     // MostrarPlavras(ptrDicionario);
 
