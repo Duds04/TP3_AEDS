@@ -39,7 +39,7 @@ int LPNumeroPalavras(TListaDePalavras *pLista)
     return contador;
 }
 
-int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
+int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra palavra){
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL){
