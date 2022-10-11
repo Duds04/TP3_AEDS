@@ -16,4 +16,4 @@ typedef struct ListaLinhas{
 
 void InsereLinha(TLinhas* pLinha, int Linha);    // Coloca uma nova linha na palavra
 TLinhas RetornarLinha(TLinhas Linha);          // return linha
-void ImprimeLinhas(TLinhas* pLinha);            //
+void ImprimeLinhas(TLinhas* pLinha);           
