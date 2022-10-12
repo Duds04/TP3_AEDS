@@ -60,35 +60,22 @@ int LPNumeroPalavras(TListaDePalavras *pLista)
     return contador;
 }
 
-/*void LImprimeListaPalavra(TListaDePalavras *pLista) /// verificar
+void LImprimeListaPalavra(TListaDePalavras *pLista) /// verificar
 {
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
-    TPalavra *salva;
+    TPalavra *Palavra;
 
     while (pAux != NULL)
     {
         if (pLista->pPrimeiro != pLista->pUltimo)
         {
-            salva = &(pAux->ItemPalavra);
-            LImprimePalavra(salva);
+            Palavra = &(pAux->ItemPalavra);
+            LImprimePalavra(Palavra);
             pAux = pAux->pProx; /* próxima célula */
         }
     }
-    printf("\n");
 }
-
-void LImprimeListaPalavra(TListaDePalavras *pLista)
-{
-
-    PointerCelula pAux;
-    pAux = pLista->pPrimeiro->pProx;
-    while (pAux != NULL)
-    {
-        printf("%d\n", pAux->ItemPalavra.Palavra);
-        pAux = pAux->pProx; /* próxima célula */
-    }
-}*/
 
 int RemovePalavraDada(TListaDePalavras *pLista, TPalavra *palavra){
     PointerCelula pAux;

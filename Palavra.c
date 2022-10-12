@@ -15,7 +15,6 @@ void LPreencherPalavra(TPalavra* pPalavra, char *Palavra, int Linha)
         free(pPalavra->Palavra);
     pPalavra->Palavra = (char*)malloc(strlen(Palavra)*sizeof(char));
     strcpy(pPalavra->Palavra, Palavra);
-    printf("Ponteiro = %s\nLinha Atual = %d\n\n", pPalavra->Palavra, Linha);
     InsereLinha(pPalavra->pLinhas, Linha);
 }
 
