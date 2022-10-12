@@ -32,4 +32,5 @@ void ImprimeLinhas(TLinhas* pLinha){
         printf("[%d] ", pAux->Linha);
         pAux = pAux->pProx; /* próxima célula */
     }
+    printf("\n");
 }

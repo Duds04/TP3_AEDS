@@ -23,8 +23,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     int contLinha = 1;
     char c, primeiraLetra;
     char guardaPalavra[200]; // vetor auxiliar para guardar palavra
-    TPalavra Palavra;
-    LPalavraVazia(&Palavra);
+
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
 
@@ -32,6 +31,8 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     {
         while (fscanf(arquivo, "%s%c", guardaPalavra, &c) != EOF)
         {
+            TPalavra Palavra;
+            LPalavraVazia(&Palavra);
             // Pega a primeira letra da palavra, vê em qual lista ela entraria (dentro do switc), e a partir disso verifica se a palavra já está na lista (se tiver, só adiciona o novo numero da linha)  (se não, adiciona a nova palavra na lista)
             primeiraLetra = guardaPalavra[0];
             LPreencherPalavra(&Palavra, guardaPalavra, contLinha);

@@ -20,7 +20,6 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
     {
         if (!(strcmp(pAux->ItemPalavra.Palavra, palavra->Palavra)))
         {
-            InsereLinha(palavra->pLinhas, linha);
             InsereLinha(pAux->ItemPalavra.pLinhas, linha);
             // printf("\nIguaisss = %s %s %d \n\n", palavra->Palavra, pAux->ItemPalavra.Palavra, linha);
             return 1;

@@ -94,9 +94,9 @@ int main()
     }
 
     // arquivo de entrada tem que estar na pasta entradas do programa
-    // ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
+    ConstroiDicionario(ptrDicionario, "./entradas/gabriel.txt");
 
-    ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
+    // ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
 
     MostrarPlavras(ptrDicionario);
     // MostrarPlavras(ptrDicionario);
