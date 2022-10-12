@@ -6,14 +6,17 @@ void LPalavraVazia(TPalavra *pPalavra)
     pPalavra->pLinhas->pPrimeiro = (pTipoLinha)malloc(sizeof(TCelulaLinha));
     pPalavra->pLinhas->pUltimo = pPalavra->pLinhas->pPrimeiro;
     pPalavra->pLinhas->pPrimeiro->pProx = NULL;
+    pPalavra->Palavra = NULL;
 }
 
 void LPreencherPalavra(TPalavra* pPalavra, char *Item, int Linha)
 {
+    if (pPalavra->Palavra != NULL)
+        free(pPalavra->Palavra);
     pPalavra->Palavra = (char*)malloc(strlen(Item)*sizeof(char));
     strcpy(pPalavra->Palavra, Item);
+    printf("Ponteiro = %s\nLinha Atual = %d\n\n", pPalavra->Palavra, Linha);
     InsereLinha(pPalavra->pLinhas, Linha);
-
 }
 
 TPalavra LRetornarPalavra(TPalavra Palavra)

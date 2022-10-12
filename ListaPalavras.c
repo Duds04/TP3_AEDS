@@ -15,12 +15,12 @@ int LPIniciaLista(TListaDePalavras *pLista)
 int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra){
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
-    while (pAux != NULL){
-        if(strcmp(palavra->Palavra, pAux->ItemPalavra.Palavra));{
-            InsereLinha(pAux->ItemPalavra.pLinhas, palavra->pLinhas->pUltimo->Linha);
-            free(palavra->pLinhas);
-            free(palavra->Palavra);
-            free(palavra);
+    while (pAux != NULL)
+    {
+        if (!(strcmp(pAux->ItemPalavra.Palavra, palavra->Palavra)))
+        {
+            InsereLinha(palavra->pLinhas, linha);
+            printf("%s %s %d \n", palavra->Palavra, pAux->ItemPalavra.Palavra, linha);
             return 1;
         }
         pAux = pAux->pProx;
@@ -30,7 +30,8 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra){
 
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra)
 {
-    if(LP_VerificaPalavra(pLista, palavra) == 1){
+    if (LP_VerificaPalavra(pLista, &palavra, linha))
+    {
         return 0;
     }
     pLista->pUltimo->pProx = (PointerCelula) malloc(sizeof(TCelula));

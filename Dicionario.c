@@ -32,14 +32,9 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     {
         while (fscanf(arquivo, "%s%c", guardaPalavra, &c) != EOF)
         {
-            if (c == '\n')
-            {
-                contLinha++;
-            }
-
             // Pega a primeira letra da palavra, vê em qual lista ela entraria (dentro do switc), e a partir disso verifica se a palavra já está na lista (se tiver, só adiciona o novo numero da linha)  (se não, adiciona a nova palavra na lista)
             primeiraLetra = guardaPalavra[0];
-            LPreencherPalavra(&salva, guardaPalavra);
+            LPreencherPalavra(&salva, guardaPalavra, contLinha);
             // LImprimeCadeia(&salva);
 
             // erro
@@ -184,6 +179,11 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
             default:
                 printf("Carecter informadao inválido %c", c);
                 break;
+            }
+
+            if (c == '\n')
+            {
+                contLinha++;
             }
         }
     }
