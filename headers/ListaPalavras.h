@@ -9,7 +9,7 @@ typedef struct Celula_LP
 {
     TPalavra ItemPalavra;
     struct Celula_LP *pProx; // Ponteiro para próxima celula
-} TCelula;
+} TCelulaPalavras;
 
 typedef struct
 {

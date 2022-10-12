@@ -5,7 +5,7 @@
 int LPIniciaLista(TListaDePalavras *pLista)
 {
 
-    pLista->pPrimeiro = (PointerCelula)malloc(sizeof(TCelula));
+    pLista->pPrimeiro = (PointerCelula)malloc(sizeof(TCelulaPalavras));
     pLista->pUltimo = pLista->pPrimeiro;
     pLista->pUltimo->pProx = NULL;
 
@@ -22,7 +22,7 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
         {
             InsereLinha(palavra->pLinhas, linha);
             InsereLinha(pAux->ItemPalavra.pLinhas, linha); /// escolher
-            printf("%s %s %d \n", palavra->Palavra, pAux->ItemPalavra.Palavra, linha);
+            // printf("\nIguaisss = %s %s %d \n\n", palavra->Palavra, pAux->ItemPalavra.Palavra, linha);
             return 1;
         }
         pAux = pAux->pProx;
@@ -34,12 +34,11 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 {
-    if (LP_VerificaPalavra(pLista, &palavra, linha))
     if (LP_VerificaPalavra(pLista, palavra, linha)) //// escolher
     {
         return 0;
     }
-    pLista->pUltimo->pProx = (PointerCelula)malloc(sizeof(TCelula));
+    pLista->pUltimo->pProx = (PointerCelula)malloc(sizeof(TCelulaPalavras));
     pLista->pUltimo = pLista->pUltimo->pProx;
     pLista->pUltimo->ItemPalavra = *palavra;
     pLista->pUltimo->pProx = NULL;

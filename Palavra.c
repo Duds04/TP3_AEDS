@@ -9,12 +9,12 @@ void LPalavraVazia(TPalavra *pPalavra)
     pPalavra->Palavra = NULL;
 }
 
-void LPreencherPalavra(TPalavra* pPalavra, char *Item, int Linha)
+void LPreencherPalavra(TPalavra* pPalavra, char *Palavra, int Linha)
 {
     if (pPalavra->Palavra != NULL)
         free(pPalavra->Palavra);
-    pPalavra->Palavra = (char*)malloc(strlen(Item)*sizeof(char));
-    strcpy(pPalavra->Palavra, Item);
+    pPalavra->Palavra = (char*)malloc(strlen(Palavra)*sizeof(char));
+    strcpy(pPalavra->Palavra, Palavra);
     printf("Ponteiro = %s\nLinha Atual = %d\n\n", pPalavra->Palavra, Linha);
     InsereLinha(pPalavra->pLinhas, Linha);
 }
