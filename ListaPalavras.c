@@ -20,8 +20,9 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
     {
         if (!(strcmp(pAux->ItemPalavra.Palavra, palavra->Palavra)))
         {
-            InsereLinha(pAux->ItemPalavra.pLinhas, linha);
-            printf("%s %s\n", palavra->Palavra, pAux->ItemPalavra.Palavra);
+            InsereLinha(palavra->pLinhas, linha);
+            InsereLinha(pAux->ItemPalavra.pLinhas, linha); /// escolher
+            printf("%s %s %d \n", palavra->Palavra, pAux->ItemPalavra.Palavra, linha);
             return 1;
         }
         pAux = pAux->pProx;
@@ -33,7 +34,8 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 {
-    if (LP_VerificaPalavra(pLista, palavra, linha))
+    if (LP_VerificaPalavra(pLista, &palavra, linha))
+    if (LP_VerificaPalavra(pLista, palavra, linha)) //// escolher
     {
         return 0;
     }
