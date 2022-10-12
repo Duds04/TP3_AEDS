@@ -6,13 +6,17 @@ void LPalavraVazia(TPalavra *pPalavra)
     pPalavra->pLinhas->pPrimeiro = (pTipoLinha)malloc(sizeof(TCelulaLinha));
     pPalavra->pLinhas->pUltimo = pPalavra->pLinhas->pPrimeiro;
     pPalavra->pLinhas->pPrimeiro->pProx = NULL;
+    pPalavra->Palavra = NULL;
 }
 
-void LPreencherPalavra(TPalavra* pPalavra, char *Item)
+void LPreencherPalavra(TPalavra* pPalavra, char *Palavra, int Linha)
 {
-    pPalavra->Palavra = (char*)malloc(strlen(Item)*sizeof(char));
-    printf("\n\n%d\n\n", strlen(Item));
-    strcpy(pPalavra->Palavra, Item);
+    if (pPalavra->Palavra != NULL)
+        free(pPalavra->Palavra);
+    pPalavra->Palavra = (char*)malloc(strlen(Palavra)*sizeof(char));
+    strcpy(pPalavra->Palavra, Palavra);
+    printf("Ponteiro = %s\nLinha Atual = %d\n\n", pPalavra->Palavra, Linha);
+    InsereLinha(pPalavra->pLinhas, Linha);
 }
 
 TPalavra LRetornarPalavra(TPalavra Palavra)
@@ -22,12 +26,11 @@ TPalavra LRetornarPalavra(TPalavra Palavra)
 
 void LImprimeCadeia(TPalavra *pPalavra)
 {   
-    printf("%s\n\n", pPalavra->Palavra);
-    
+    printf("%s\n", pPalavra->Palavra);
 }
 
 void LImprimePalavra(TPalavra *pPalavra)
 {
-    printf("\n\n%s\n\n", pPalavra->Palavra);
+    printf("\n%s\n", pPalavra->Palavra);
     ImprimeLinhas(pPalavra->pLinhas);
 }
