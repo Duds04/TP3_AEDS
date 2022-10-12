@@ -5,14 +5,14 @@
 
 typedef struct Celula_LP *PointerCelula;
 
-typedef struct Celula_LP
-{
+typedef struct Celula_LP{
+
     TPalavra ItemPalavra;
     struct Celula_LP *pProx; // Ponteiro para próxima celula
+    
 } TCelulaPalavras;
 
-typedef struct
-{
+typedef struct{
 
     PointerCelula pPrimeiro; // Ponteiro para primeiro da lista de palavras no heap
     PointerCelula pUltimo;   // Ponteiro para ultimo da lista de palavras no heap
@@ -26,3 +26,4 @@ int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra, int linha);
 int LPNumeroPalavras(TListaDePalavras *pLista);
 int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha);
 void LImprimeListaPalavra(TListaDePalavras* pLista);
+int RemovePalavraFinal(TListaDePalavras *pLista);

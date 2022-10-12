@@ -1,6 +1,5 @@
 #include "./headers/Linhas.h"
 
-    
 void InsereLinha(TLinhas* pLinha, int linha){
     pTipoLinha pAux;
     pAux = pLinha->pPrimeiro->pProx;

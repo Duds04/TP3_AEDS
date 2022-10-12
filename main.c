@@ -8,7 +8,7 @@ int main()
     Dicionario dicionario;
     Dicionario *ptrDicionario = &dicionario;
     printf("\n Rodando programa...\n\n");
-
+    
     InicializaDicionario(ptrDicionario);
 
     // CriaTodasListasLetras(ptrDicionario);
