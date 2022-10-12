@@ -12,7 +12,8 @@ int LPIniciaLista(TListaDePalavras *pLista)
     return 1;
 }
 
-int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra){
+int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
+{
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
     while (pAux != NULL)
@@ -20,25 +21,28 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra){
         if (!(strcmp(pAux->ItemPalavra.Palavra, palavra->Palavra)))
         {
             InsereLinha(palavra->pLinhas, linha);
+            InsereLinha(pAux->ItemPalavra.pLinhas, linha); /// escolher
             printf("%s %s %d \n", palavra->Palavra, pAux->ItemPalavra.Palavra, linha);
             return 1;
         }
         pAux = pAux->pProx;
+
     }
+
     return 0;
 }
 
-int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra)
+int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 {
     if (LP_VerificaPalavra(pLista, &palavra, linha))
+    if (LP_VerificaPalavra(pLista, palavra, linha)) //// escolher
     {
         return 0;
     }
-    pLista->pUltimo->pProx = (PointerCelula) malloc(sizeof(TCelula));
+    pLista->pUltimo->pProx = (PointerCelula)malloc(sizeof(TCelula));
     pLista->pUltimo = pLista->pUltimo->pProx;
     pLista->pUltimo->ItemPalavra = *palavra;
     pLista->pUltimo->pProx = NULL;
-    free(palavra);
     return 1;
 }
 
@@ -61,29 +65,33 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
 {
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
-    TPalavra* salva;
+    TPalavra *salva;
 
     while (pAux != NULL)
     {
-        if(pLista->pPrimeiro != pLista->pUltimo){
+        if (pLista->pPrimeiro != pLista->pUltimo)
+        {
             salva = &(pAux->ItemPalavra);
-            LImprimeCadeia(salva);
+            LImprimePalavra(salva);
             pAux = pAux->pProx; /* próxima célula */
         }
     }
+    printf("\n");
 }
 
 // int RemovePalavraDada(){
 
 // }
 
-int RemovePalavraFinal(TListaDePalavras *pLista){
+int RemovePalavraFinal(TListaDePalavras *pLista)
+{
     int NumeroPalavras = LPNumeroPalavras(pLista);
     int cont;
     PointerCelula pAux;
     PointerCelula pAux2;
     pAux = pLista->pPrimeiro->pProx;
-    for(cont=0;cont<(NumeroPalavras-1); cont++){
+    for (cont = 0; cont < (NumeroPalavras - 1); cont++)
+    {
         pAux = pAux->pProx;
     }
     pAux2 = pAux->pProx;

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "Palavra.h"
 
 typedef struct Celula_LP *PointerCelula;
@@ -21,7 +22,7 @@ typedef struct
 /*  Cabeçalho das funções Lista de palavras    */
 
 int LPIniciaLista(TListaDePalavras *pLista);
-int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra);
+int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra, int linha);
 int LPNumeroPalavras(TListaDePalavras *pLista);
-int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra);
+int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha);
 void LImprimeListaPalavra(TListaDePalavras* pLista);
