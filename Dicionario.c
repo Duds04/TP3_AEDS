@@ -342,7 +342,7 @@ void MostrarPlavras(Dicionario *pDicionario)
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
     int cont = 0;
-    char alphabt[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char alphabt[28] = "AB CDEFGHIJKLMNOPQ RSTUVWXYZ";
     while (pAux != NULL)
     {
         if(pAux->pLista->pPrimeiro != pAux->pLista->pUltimo){
