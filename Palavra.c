@@ -30,6 +30,6 @@ void LImprimeCadeia(TPalavra *pPalavra)
 
 void LImprimePalavra(TPalavra *pPalavra)
 {
-    printf("\n%s\n", pPalavra->Palavra);
+    printf("\nPalavra: %s\n", pPalavra->Palavra);
     ImprimeLinhas(pPalavra->pLinhas);
 }

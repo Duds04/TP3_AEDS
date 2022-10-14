@@ -27,6 +27,7 @@ void ImprimeLinhas(TLinhas* pLinha){
     pTipoLinha pAux;
     pAux = pLinha->pPrimeiro->pProx;
     if(pAux == NULL) printf("Lista linha vazia\n");
+    printf("Linhas: ");
     while (pAux != NULL)
     {
         printf("[%d] ", pAux->Linha);
