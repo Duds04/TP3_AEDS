@@ -27,3 +27,4 @@ int LPNumeroPalavras(TListaDePalavras *pLista);
 int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha);
 void LImprimeListaPalavra(TListaDePalavras* pLista);
 int RemovePalavraFinal(TListaDePalavras *pLista);
+int RemovePalavraDada(TListaDePalavras *pLista, TPalavra *palavra);
