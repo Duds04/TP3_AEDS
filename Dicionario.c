@@ -346,6 +346,7 @@ void MostrarPlavras(Dicionario *pDicionario)
     while (pAux != NULL)
     {
         if(pAux->pLista->pPrimeiro != pAux->pLista->pUltimo){
+            printf("***************************\n");
             printf("\n\nLetra: %c\n\n", alphabt[cont]);
             LImprimeListaPalavra(pAux->pLista);
         }

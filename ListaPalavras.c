@@ -69,9 +69,11 @@ void LImprimeListaPalavra(TListaDePalavras *pLista) /// verificar
     {
         if (pLista->pPrimeiro != pLista->pUltimo)
         {
+            printf("\n-----------------------");
             Palavra = &(pAux->ItemPalavra);
             LImprimePalavra(Palavra);
             pAux = pAux->pProx; /* próxima célula */
+            printf("-----------------------\n");
         }
     }
 }
