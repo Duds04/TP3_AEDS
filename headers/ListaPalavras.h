@@ -24,7 +24,7 @@ typedef struct{
 int LPIniciaLista(TListaDePalavras *pLista);
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra, int linha);
 int LPNumeroPalavras(TListaDePalavras *pLista);
-int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha);
+int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha);
 void LImprimeListaPalavra(TListaDePalavras* pLista);
 int RemovePalavraFinal(TListaDePalavras *pLista);
-int RemovePalavraDada(TListaDePalavras *pLista, TPalavra *palavra);
+int RemovePalavraDada(TListaDePalavras *pLista, char *palavra);

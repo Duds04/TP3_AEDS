@@ -12,7 +12,7 @@ int LPIniciaLista(TListaDePalavras *pLista)
     return 1;
 }
 
-int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
+int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 {
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
@@ -32,7 +32,7 @@ int LP_VerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 
 int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 {
-    if (LP_VerificaPalavra(pLista, palavra, linha))
+    if (LPVerificaPalavra(pLista, palavra, linha))
     {
         return 0;
     }
@@ -58,7 +58,7 @@ int LPNumeroPalavras(TListaDePalavras *pLista)
     return contador;
 }
 
-void LImprimeListaPalavra(TListaDePalavras *pLista) /// verificar
+void LImprimeListaPalavra(TListaDePalavras *pLista)
 {
     PointerCelula pAux;
     pAux = pLista->pPrimeiro->pProx;
@@ -77,16 +77,24 @@ void LImprimeListaPalavra(TListaDePalavras *pLista) /// verificar
     }
 }
 
-int RemovePalavraDada(TListaDePalavras *pLista, TPalavra *palavra){
+int RemovePalavraDada(TListaDePalavras *pLista, char *palavra){
     PointerCelula pPercorre, pPercorreAux, pAux;
     pPercorre = pLista->pPrimeiro->pProx;
     pPercorreAux = pLista->pPrimeiro;
+
     while (pPercorre != NULL){
-        if(strcmp(palavra->Palavra, pAux->pProx->ItemPalavra.Palavra) == 0){
-        pAux = pPercorre;
-        pPercorreAux->pProx = pPercorre->pProx;
-        free(pAux);
+        if(!(strcmp(palavra, pPercorre->ItemPalavra.Palavra))){
+            pAux = pPercorre;
+            pPercorreAux->pProx = pPercorre->pProx;
+            if (pPercorre->pProx == NULL){
+                pLista->pUltimo = pPercorreAux;
+            }
+            free(pAux->pProx);
+            free(pAux);
         }
+        if (pLista->pPrimeiro->pProx == NULL)
+            pLista->pUltimo = pLista->pPrimeiro;
+        
         pPercorre = pPercorre->pProx;
         pPercorreAux = pPercorreAux->pProx;
     }
@@ -96,7 +104,6 @@ int RemovePalavraDada(TListaDePalavras *pLista, TPalavra *palavra){
 int RemovePalavraFinal(TListaDePalavras *pLista)
 {
     PointerCelula pPercorre, pPercorreAux, pAux;
-    
     pPercorre = pLista->pPrimeiro->pProx;
     pPercorreAux = pLista->pPrimeiro;
     
@@ -106,7 +113,11 @@ int RemovePalavraFinal(TListaDePalavras *pLista)
     }
     pAux = pPercorre;
     pPercorreAux->pProx = NULL;
+    free(pAux->pProx);
     free(pAux);
-    
+
+    if (pLista->pPrimeiro->pProx == NULL)
+        pLista->pUltimo = pLista->pPrimeiro;
+
     return 1;
 }

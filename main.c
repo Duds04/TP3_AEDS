@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "./headers/Dicionario.h"
-// #include "./headers/Palavra.h"
 
 int main()
 {
@@ -105,14 +104,17 @@ int main()
         char arquivo[30];
         char caminho[20] = "./entradas/";
 
+        system("cls");
+
         // Menu dá acessoa a funcionalidades que não são usadas dentro das funções
         printf("\n\nMENU\nOBS: Digite os valores numeros das respectivas operacoe\n");
         printf("Escreva a operacao que deseja realizar:\n");
         printf("1 - Escrever o nome do arquivo de entrada\n");
         printf("2 - Buscar lista de palavras no dicionario pela letra\n");
         printf("3 - Remover palavra em uma lista de palavras\n");
-        printf("4 - Imprime o dicionario\n");
-        printf("5 - Sair do programa\n");
+        printf("4 - Remover a ultima palavra\n");
+        printf("5 - Imprime o dicionario\n");
+        printf("6 - Sair do programa\n");
         printf("\n");
         scanf(" %d", &entrada);
         printf("\n");
@@ -124,42 +126,63 @@ int main()
             printf("Digite o nome do arquivo (com sua extensao .txt): \n");
             scanf(" %s", arquivo);
             strcat(caminho, arquivo);
-            printf(" %s", caminho);
             ConstroiDicionario(ptrDicionario, caminho);
             break;
+
         case 2:
             printf("Insira a letra para busca de listas: \n");
             scanf(" %c", &letra);
-            ExibirListaPorLetra(ptrDicionario, letra);
+            printf("pLista = %d\n", ExibirListaPorLetra(ptrDicionario, letra));
             break;
+
         case 3:
             
             pLista = NULL;
-            printf("Insira a letra para busca de listas: \n");
+            printf("Insira a primeira letra da palavra: \n");
             scanf(" %c", &letra);
+            printf("Opcoes a ser removidas: \n");
             pLista = ExibirListaPorLetra(ptrDicionario, letra);
-            LPalavraVazia(&Palavra);
-            printf("Insira a palavra que deve ser removida: \n");
             scanf(" %s", &palavra);
-            LPreencherPalavra(&Palavra, palavra, 0);
 
             if(pLista == NULL)
                 printf("Lista nao encontrada");
             else{
-                RemovePalavraDada(pLista, &Palavra);
+                RemovePalavraDada(pLista, palavra);
             }
             break;
+
         case 4:
+            
+            pLista = NULL;
+            printf("Insira a letra da lista que a sua ultima palavra sera removida: \n");
+            scanf(" %c", &letra);
+            printf("Lista antes da remocao: \n");
+            pLista = ExibirListaPorLetra(ptrDicionario, letra);
+
+            if(pLista->pPrimeiro->pProx == NULL)
+                printf("Lista nao encontrada\n");
+            else{
+                RemovePalavraFinal(pLista);
+                printf("\nLista depois da remocao: \n");
+                pLista = ExibirListaPorLetra(ptrDicionario, letra);
+                if(pLista->pPrimeiro->pProx == NULL)
+                    printf("Lista nao encontrada\n");
+            }
+            break;
+
+        case 5:
             MostrarPlavras(ptrDicionario);
             break;
-        case 5:
+
+        case 6:
             return 0;
             break;
+
         default:
-            printf("Entrada inválida!");
-            // __fpurge(stdin);
+            printf("Entrada invalida! \n");
             break;
         }
+        system("pause");
     }
 
     return 0;
