@@ -23,8 +23,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     int contLinha = 1;
     char c, primeiraLetra;
     char guardaPalavra[200]; // vetor auxiliar para guardar palavra
-    TPalavra Palavra;
-    LPalavraVazia(&Palavra);
+
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
 
@@ -32,17 +31,12 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     {
         while (fscanf(arquivo, "%s%c", guardaPalavra, &c) != EOF)
         {
+            TPalavra Palavra;
+            LPalavraVazia(&Palavra);
             // Pega a primeira letra da palavra, vê em qual lista ela entraria (dentro do switc), e a partir disso verifica se a palavra já está na lista (se tiver, só adiciona o novo numero da linha)  (se não, adiciona a nova palavra na lista)
             primeiraLetra = guardaPalavra[0];
             LPreencherPalavra(&Palavra, guardaPalavra, contLinha);
-            // LImprimeCadeia(&Palavra);
-
-
-            // pDicionario->pPrimeiro->Lista;
-
             pAux = pDicionario->pPrimeiro->pProx;
-
-            // printf("%c \n", primeiraLetra);
 
             switch (primeiraLetra)
             {
@@ -55,122 +49,122 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'c':
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 2; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'd':
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 3; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'e':
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 4; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'f':
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 5; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'g':
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < 6; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'h':
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 7; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'i':
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < 8; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'j':
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 9; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'k':
-                for (int i = 0; i < 11; i++)
+                for (int i = 0; i < 10; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'l':
-                for (int i = 0; i < 12; i++)
+                for (int i = 0; i < 11; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'm':
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < 12; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'n':
-                for (int i = 0; i < 14; i++)
+                for (int i = 0; i < 13; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'o':
-                for (int i = 0; i < 15; i++)
+                for (int i = 0; i < 14; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'p':
-                for (int i = 0; i < 16; i++)
+                for (int i = 0; i < 15; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'q':
-                for (int i = 0; i < 17; i++)
+                for (int i = 0; i < 16; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'r':
-                for (int i = 0; i < 19; i++)
+                for (int i = 0; i < 17; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 's':
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 18; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 't':
-                for (int i = 0; i < 21; i++)
+                for (int i = 0; i < 19; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'u':
-                for (int i = 0; i < 22; i++)
+                for (int i = 0; i < 20; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'v':
-                for (int i = 0; i < 23; i++)
+                for (int i = 0; i < 21; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'w':
-                for (int i = 0; i < 24; i++)
+                for (int i = 0; i < 22; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'x':
-                for (int i = 0; i < 25; i++)
+                for (int i = 0; i < 23; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'y':
-                for (int i = 0; i < 26; i++)
+                for (int i = 0; i < 24; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             case 'z':
-                for (int i = 0; i < 27; i++)
+                for (int i = 0; i < 25; i++)
                     pAux = pAux->pProx;
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
@@ -193,159 +187,187 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     fclose(arquivo);
 }
 
-int ExibirListaPorLetra(Dicionario *pDicionario, char letra)
+TListaDePalavras* ExibirListaPorLetra(Dicionario *pDicionario, char letra)
 {
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
     switch (letra)
     {
     case 'a':
-        // printf("\nAqui 2 \n");
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
     case 'b':
         for (int i = 0; i < 1; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
     case 'c':
+        for (int i = 0; i < 2; i++)
+            pAux = pAux->pProx;
+        LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
+        break;
+    case 'd':
         for (int i = 0; i < 3; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'd':
+    case 'e':
         for (int i = 0; i < 4; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'e':
+    case 'f':
         for (int i = 0; i < 5; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'f':
+    case 'g':
         for (int i = 0; i < 6; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'g':
+    case 'h':
         for (int i = 0; i < 7; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'h':
+    case 'i':
         for (int i = 0; i < 8; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'i':
+    case 'j':
         for (int i = 0; i < 9; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'j':
+    case 'k':
         for (int i = 0; i < 10; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'k':
+    case 'l':
         for (int i = 0; i < 11; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'l':
+    case 'm':
         for (int i = 0; i < 12; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'm':
+    case 'n':
         for (int i = 0; i < 13; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'n':
+    case 'o':
         for (int i = 0; i < 14; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'o':
+    case 'p':
         for (int i = 0; i < 15; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'p':
+    case 'q':
         for (int i = 0; i < 16; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'q':
+    case 'r':
         for (int i = 0; i < 17; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'r':
+    case 's':
+        for (int i = 0; i < 18; i++)
+            pAux = pAux->pProx;
+        LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
+        break;
+    case 't':
         for (int i = 0; i < 19; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 's':
+    case 'u':
         for (int i = 0; i < 20; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 't':
+    case 'v':
         for (int i = 0; i < 21; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'u':
+    case 'w':
         for (int i = 0; i < 22; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'v':
+    case 'x':
         for (int i = 0; i < 23; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'w':
+    case 'y':
         for (int i = 0; i < 24; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
-    case 'x':
+    case 'z':
         for (int i = 0; i < 25; i++)
             pAux = pAux->pProx;
         LImprimeListaPalavra(pAux->pLista);
-        break;
-    case 'y':
-        for (int i = 0; i < 26; i++)
-            pAux = pAux->pProx;
-        LImprimeListaPalavra(pAux->pLista);
-        break;
-    case 'z':
-        for (int i = 0; i < 27; i++)
-            pAux = pAux->pProx;
-        LImprimeListaPalavra(pAux->pLista);
+        return pAux->pLista;
         break;
     default:
         printf("Carecter informadao inválido %c", letra);
+        return NULL;
         break;
     }
-
-    return 0;
 }
 
 void MostrarPlavras(Dicionario *pDicionario)
 {
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
-
+    int cont = 0;
+    char alphabt[28] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     while (pAux != NULL)
     {
         if(pAux->pLista->pPrimeiro != pAux->pLista->pUltimo){
+            printf("***************************\n");
+            printf("\n\nLetra: %c\n\n", alphabt[cont]);
             LImprimeListaPalavra(pAux->pLista);
         }
         pAux = pAux->pProx;
+        cont++;
     }
 }
