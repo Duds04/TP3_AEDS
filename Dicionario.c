@@ -169,7 +169,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
                 LPInsereFinal(pAux->pLista, &Palavra, contLinha);
                 break;
             default:
-                printf("Carecter informadao inválido %c", c);
+                printf("Carecter informadao invalido %c", c);
                 break;
             }
 

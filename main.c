@@ -89,11 +89,7 @@ int main()
         LPIniciaLista(&LZ);
         CriaListasPorLetra(ptrDicionario, &LZ);
     }
-   
     
-
-    printf("\n Rodando programa...\n\n");
-
     while (1)
     {   
         int entrada = -1;
@@ -116,6 +112,7 @@ int main()
         printf("5 - Imprime o dicionario\n");
         printf("6 - Sair do programa\n");
         printf("\n");
+        fflush(stdin);
         scanf(" %d", &entrada);
         printf("\n");
 
@@ -132,7 +129,7 @@ int main()
         case 2:
             printf("Insira a letra para busca de listas: \n");
             scanf(" %c", &letra);
-            printf("pLista = %d\n", ExibirListaPorLetra(ptrDicionario, letra));
+            ExibirListaPorLetra(ptrDicionario, letra);
             break;
 
         case 3:
@@ -142,6 +139,7 @@ int main()
             scanf(" %c", &letra);
             printf("Opcoes a ser removidas: \n");
             pLista = ExibirListaPorLetra(ptrDicionario, letra);
+            printf("\nEscreva a palavra que deseja remover: \n");
             scanf(" %s", &palavra);
 
             if(pLista == NULL)
