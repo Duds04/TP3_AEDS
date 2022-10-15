@@ -125,7 +125,7 @@ int main()
             scanf(" %s", arquivo);
             strcat(caminho, arquivo);
             printf("%s", caminho);
-            ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
+            ConstroiDicionario(ptrDicionario, caminho);
             break;
         case 2:
             printf("Insira a letra para busca de listas: \n");
