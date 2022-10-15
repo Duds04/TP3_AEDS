@@ -90,16 +90,24 @@ int main()
         LPIniciaLista(&LZ);
         CriaListasPorLetra(ptrDicionario, &LZ);
     }
+   
+    
 
     printf("\n Rodando programa...\n\n");
 
     while (1)
-    {
+    {   
         int entrada = -1;
+        char letra;
+        char palavra[100];
+        TPalavra Palavra;
+        TListaDePalavras* pLista;
+        // char arquivo[30];
+        // char caminho[18];
 
         // Menu dá acessoa a funcionalidades que não são usadas dentro das funções
         printf("\n\nMENU\nOBS: Digite os valores numeros das respectivas operacoe\n");
-        printf("Escreva a operação que deseja realizar:\n");
+        printf("Escreva a operacao que deseja realizar:\n");
         printf("1 - Escrever o nome do arquivo de entrada\n");
         printf("2 - Buscar lista de palavras no dicionario pela letra\n");
         printf("3 - Remover palavra em uma lista de palavras\n");
@@ -113,29 +121,27 @@ int main()
         {
         case 1:
             // arquivo de entrada tem que estar na pasta entradas do programa
-            char caminho[13] = "./entradas/";
-            char arquivo[30];
-            printf("Digite o nome do arquivo (com sua extensao .txt): \n");
-            scanf(" %s", arquivo);
-            strcat(caminho, arquivo);
-            printf("%s", caminho);
-            ConstroiDicionario(ptrDicionario, caminho);
+            // char caminho[18] = "./entradas/";
+            // char arquivo[30];
+            // printf("Digite o nome do arquivo (com sua extensao .txt): \n");
+            // scanf(" %s", arquivo);
+            // strcat(caminho, arquivo);
+            // printf("%s", caminho);
+            ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
             break;
         case 2:
-            char letra;
             printf("Insira a letra para busca de listas: \n");
-            letra = fgetc(stdin);
+            scanf("%c", letra);
             ExibirListaPorLetra(ptrDicionario, letra);
             break;
         case 3:
-            char entrada[100];
-            TPalavra Palavra;
-            TListaDePalavras* pLista = NULL;
+            
+            pLista = NULL;
             printf("Insira a letra para busca de listas: \n");
-            fgets(entrada, 100, stdin);
-            pLista = ExibirListaPorLetra(ptrDicionario, entrada[0]);
+            fgets(palavra, 100, stdin);
+            pLista = ExibirListaPorLetra(ptrDicionario, palavra[0]);
             LPalavraVazia(&Palavra);
-            LPreencherPalavra(&Palavra, entrada, 0);
+            LPreencherPalavra(&Palavra, palavra, 0);
 
             if(pLista == NULL)
                 printf("Lista nao encontrada");

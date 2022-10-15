@@ -13,7 +13,7 @@ typedef struct Celula_LP{
 } TCelulaPalavras;
 
 typedef struct{
-
+    
     PointerCelula pPrimeiro; // Ponteiro para primeiro da lista de palavras no heap
     PointerCelula pUltimo;   // Ponteiro para ultimo da lista de palavras no heap
 
