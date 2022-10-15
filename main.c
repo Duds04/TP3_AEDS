@@ -9,6 +9,109 @@ int main()
     Dicionario *ptrDicionario = &dicionario;
     printf("\n Rodando programa...\n\n");
     
+    int entrada = -1;
+
+    printf("Escreva a operação que deseja realizar:\n");
+    printf("1 - Escrever o nome do arquivo: \n");
+    printf("2 - \n");
+    printf("3 - \n");
+    printf("4 - \n");
+    printf("5 - \n");
+    printf("6 - \n");
+    printf("7 - \n");
+    printf("8 - \n");
+    printf("9 - \n");
+    printf("10 - \n");
+    printf("11 - \n");
+    printf("12 - \n");
+    printf("13 - \n");
+    printf("14 - \n");
+    printf("15 - \n");
+    printf("16 - \n");
+    printf("17 - \n");
+    printf("18 - \n");
+    printf("19 - \n");
+    printf("20 - \n");
+    printf("21 - \n");
+    
+
+    scanf(" %d", entrada);
+
+    switch (entrada)
+    {
+    case 1:
+        
+        break;
+    case 2:
+        
+        break;
+    case 3:
+        
+        break;
+    case 4:
+        
+        break;
+    case 5:
+        
+        break;
+    case 6:
+        
+        break;
+    case 7:
+        
+        break;
+    case 8:
+        
+        break;
+    case 9:
+        
+        break;
+    case 10:
+        
+        break;
+    case 11:
+        
+        break;
+    case 12:
+        
+        break;
+    case 13:
+        
+        break;
+    case 14:
+        
+        break;
+    case 15:
+        
+        break;
+    case 16:
+        
+        break;
+    case 17:
+        
+        break;
+
+    case 18:
+        
+        break;
+    case 19:
+        
+        break;
+    case 20:
+        
+        break;
+    case 21:
+        
+        break;
+    default:
+        printf("Entrada inválida!");
+        break;
+    }
+
+
+
+
+
     InicializaDicionario(ptrDicionario);
 
     // CriaTodasListasLetras(ptrDicionario);
