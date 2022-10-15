@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdio_ext.h>
 #include "./headers/Dicionario.h"
 // #include "./headers/Palavra.h"
 
@@ -115,7 +114,7 @@ int main()
         printf("4 - Imprime o dicionario\n");
         printf("5 - Sair do programa\n");
         printf("\n");
-        scanf("%d", &entrada);
+        scanf(" %d", &entrada);
         printf("\n");
 
         switch (entrada)
@@ -125,21 +124,23 @@ int main()
             printf("Digite o nome do arquivo (com sua extensao .txt): \n");
             scanf(" %s", arquivo);
             strcat(caminho, arquivo);
-            printf("%s", caminho);
+            printf(" %s", caminho);
             ConstroiDicionario(ptrDicionario, caminho);
             break;
         case 2:
             printf("Insira a letra para busca de listas: \n");
-            scanf("%c", &letra);
+            scanf(" %c", &letra);
             ExibirListaPorLetra(ptrDicionario, letra);
             break;
         case 3:
             
             pLista = NULL;
             printf("Insira a letra para busca de listas: \n");
-            fgets(palavra, 100, stdin);
-            pLista = ExibirListaPorLetra(ptrDicionario, palavra[0]);
+            scanf(" %c", &letra);
+            pLista = ExibirListaPorLetra(ptrDicionario, letra);
             LPalavraVazia(&Palavra);
+            printf("Insira a palavra que deve ser removida: \n");
+            scanf(" %s", &palavra);
             LPreencherPalavra(&Palavra, palavra, 0);
 
             if(pLista == NULL)
@@ -156,7 +157,7 @@ int main()
             break;
         default:
             printf("Entrada inválida!");
-            __fpurge(stdin);
+            // __fpurge(stdin);
             break;
         }
     }
