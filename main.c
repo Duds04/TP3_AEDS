@@ -102,8 +102,8 @@ int main()
         char palavra[100];
         TPalavra Palavra;
         TListaDePalavras* pLista;
-        // char arquivo[30];
-        // char caminho[18];
+        char arquivo[30];
+        char caminho[20] = "./entradas/";
 
         // Menu dá acessoa a funcionalidades que não são usadas dentro das funções
         printf("\n\nMENU\nOBS: Digite os valores numeros das respectivas operacoe\n");
@@ -121,17 +121,15 @@ int main()
         {
         case 1:
             // arquivo de entrada tem que estar na pasta entradas do programa
-            // char caminho[18] = "./entradas/";
-            // char arquivo[30];
-            // printf("Digite o nome do arquivo (com sua extensao .txt): \n");
-            // scanf(" %s", arquivo);
-            // strcat(caminho, arquivo);
-            // printf("%s", caminho);
+            printf("Digite o nome do arquivo (com sua extensao .txt): \n");
+            scanf(" %s", arquivo);
+            strcat(caminho, arquivo);
+            printf("%s", caminho);
             ConstroiDicionario(ptrDicionario, "./entradas/ent.txt");
             break;
         case 2:
             printf("Insira a letra para busca de listas: \n");
-            scanf("%c", letra);
+            scanf("%c", &letra);
             ExibirListaPorLetra(ptrDicionario, letra);
             break;
         case 3:
