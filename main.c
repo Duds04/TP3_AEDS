@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdio_ext.h>
 #include "./headers/Dicionario.h"
 // #include "./headers/Palavra.h"
 
@@ -13,19 +14,19 @@ int main()
     {
         TListaDePalavras LA;
         LPIniciaLista(&LA);
-        CriaListasPorLetra(ptrDicionario, &LA); // OK
+        CriaListasPorLetra(ptrDicionario, &LA);
         TListaDePalavras LB;
         LPIniciaLista(&LB);
-        CriaListasPorLetra(ptrDicionario, &LB); // OK
+        CriaListasPorLetra(ptrDicionario, &LB);
         TListaDePalavras LC;
         LPIniciaLista(&LC);
-        CriaListasPorLetra(ptrDicionario, &LC); // OK
+        CriaListasPorLetra(ptrDicionario, &LC);
         TListaDePalavras LD;
         LPIniciaLista(&LD);
-        CriaListasPorLetra(ptrDicionario, &LD); // OK
+        CriaListasPorLetra(ptrDicionario, &LD);
         TListaDePalavras LE;
         LPIniciaLista(&LE);
-        CriaListasPorLetra(ptrDicionario, &LE); // OK
+        CriaListasPorLetra(ptrDicionario, &LE);
         TListaDePalavras LF;
         LPIniciaLista(&LF);
         CriaListasPorLetra(ptrDicionario, &LF);
@@ -155,6 +156,7 @@ int main()
             break;
         default:
             printf("Entrada inválida!");
+            __fpurge(stdin);
             break;
         }
     }

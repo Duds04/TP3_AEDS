@@ -9,9 +9,8 @@ typedef struct TCelulaDicionario{
 }TDicionario;
 
 typedef struct {
-    //lista do tipo encadeada tmn 26  
+    //lista do tipo encadeada tamanho 26  
     pCelulaDicionario pPrimeiro;
-    // pCelulaDicionario pMeio; //facilitar/otimizar o acesso as listas do dicionario (aponta pra lista "M")
     pCelulaDicionario pUltimo;
 }Dicionario;
 
@@ -20,4 +19,3 @@ void CriaListasPorLetra(Dicionario *pDicionario, TListaDePalavras *pLista);   //
 int ConstroiDicionario(Dicionario* pDicionario, char* pTexto);
 TListaDePalavras* ExibirListaPorLetra(Dicionario* pDicionario, char letra);
 void MostrarPlavras(Dicionario* pDicionario);
-// void AnalisaArquivo(Dicionario* pDicionario, char* pTexto);

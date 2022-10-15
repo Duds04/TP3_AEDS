@@ -36,14 +36,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
             // Pega a primeira letra da palavra, vê em qual lista ela entraria (dentro do switc), e a partir disso verifica se a palavra já está na lista (se tiver, só adiciona o novo numero da linha)  (se não, adiciona a nova palavra na lista)
             primeiraLetra = guardaPalavra[0];
             LPreencherPalavra(&Palavra, guardaPalavra, contLinha);
-            // LImprimeCadeia(&Palavra);
-
-
-            // pDicionario->pPrimeiro->Lista;
-
             pAux = pDicionario->pPrimeiro->pProx;
-
-            // printf("%c \n", primeiraLetra);
 
             switch (primeiraLetra)
             {
@@ -201,7 +194,6 @@ TListaDePalavras* ExibirListaPorLetra(Dicionario *pDicionario, char letra)
     switch (letra)
     {
     case 'a':
-        // printf("\nAqui 2 \n");
         LImprimeListaPalavra(pAux->pLista);
         return pAux->pLista;
         break;
