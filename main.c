@@ -157,13 +157,13 @@ int main()
             printf("Lista antes da remocao: \n");
             pLista = ExibirListaPorLetra(ptrDicionario, letra);
 
-            if(pLista->pPrimeiro->pProx == NULL)
+            if(pLista->primeiro == pLista->ultimo)
                 printf("Lista nao encontrada\n");
             else{
                 RemovePalavraFinal(pLista);
                 printf("\nLista depois da remocao: \n");
                 pLista = ExibirListaPorLetra(ptrDicionario, letra);
-                if(pLista->pPrimeiro->pProx == NULL)
+                if(pLista->primeiro == pLista->ultimo)
                     printf("Lista nao encontrada\n");
             }
             break;

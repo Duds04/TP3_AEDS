@@ -362,7 +362,7 @@ void MostrarPlavras(Dicionario *pDicionario)
     char alphabt[28] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     while (pAux != NULL)
     {
-        if(pAux->pLista->pPrimeiro != pAux->pLista->pUltimo){
+        if(pAux->pLista->primeiro != pAux->pLista->ultimo){
             printf("***************************\n");
             printf("\n\nLetra: %c\n\n", alphabt[cont]);
             LImprimeListaPalavra(pAux->pLista);
