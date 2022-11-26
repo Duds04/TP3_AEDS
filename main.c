@@ -99,7 +99,7 @@ int main()
         TListaDePalavras* pLista;
         char arquivo[30];
         char caminho[20] = "./entradas/";
-
+        int select1;
         system("cls");
 
         // Menu dá acessoa a funcionalidades que não são usadas dentro das funções
@@ -111,6 +111,7 @@ int main()
         printf("4 - Remover a ultima palavra\n");
         printf("5 - Imprime o dicionario\n");
         printf("6 - Sair do programa\n");
+        printf("7 - Utilizar metodos de ordenacao");
         printf("\n");
         fflush(stdin);
         scanf(" %d", &entrada);
@@ -175,7 +176,22 @@ int main()
         case 6:
             return 0;
             break;
-
+        case 7:
+            printf("[ 1 ] Uma lista em especifico \n[ 2 ] Todo dicionario \n>>> ");
+            scanf("%d", &select1);
+            switch (select1)
+            {
+            case 1:
+                OrdenaULista(ptrDicionario);
+                break;
+            case 2:
+                OrdenaTudo(ptrDicionario);
+                break;
+            default:
+                printf("Invalido");
+                break;
+            }
+            break;
         default:
             printf("Entrada invalida! \n");
             break;

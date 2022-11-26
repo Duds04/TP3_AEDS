@@ -1,6 +1,6 @@
 // #include "Palavra.h"
 #include <stdio.h>
-#include "ListaPalavras.h"
+#include "Ordenacoes.h"
 
 typedef struct TCelulaDicionario* pCelulaDicionario;
 typedef struct TCelulaDicionario{
@@ -19,3 +19,5 @@ void CriaListasPorLetra(Dicionario *pDicionario, TListaDePalavras *pLista);   //
 int ConstroiDicionario(Dicionario* pDicionario, char* pTexto);
 TListaDePalavras* ExibirListaPorLetra(Dicionario* pDicionario, char letra);
 void MostrarPlavras(Dicionario* pDicionario);
+void OrdenaTudo(Dicionario *pDicionario);
+int OrdenaULista(Dicionario *pDicionario);
