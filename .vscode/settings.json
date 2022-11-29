@@ -6,6 +6,8 @@
         "palavra.h": "c",
         "linhas.h": "c",
         "listapalavras.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "ordenacoes.h": "c",
+        "stdio_ext.h": "c"
     }
 }

@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "./headers/Dicionario.h"
+#include <unistd.h>
+#if defined(__MINGW32__) || defined(_MSC_VER)
+#define limpar_input() fflush(stdin)
+#define limpar_tela() system("cls")
+#define pausar_tela() system("pause")
+#else
+#include <stdio_ext.h>
+#define limpar_input() __fpurge(stdin)
+#define limpar_tela() system("clear")
+#define pausar_tela()
+#endif
+
 
 int main()
 {
@@ -100,7 +112,8 @@ int main()
         char arquivo[30];
         char caminho[20] = "./entradas/";
         int select1;
-        system("cls");
+        limpar_tela();
+       
 
         // Menu dá acessoa a funcionalidades que não são usadas dentro das funções
         printf("\n\nMENU\nOBS: Digite os valores numeros das respectivas operacoe\n");
@@ -111,7 +124,7 @@ int main()
         printf("4 - Remover a ultima palavra\n");
         printf("5 - Imprime o dicionario\n");
         printf("6 - Sair do programa\n");
-        printf("7 - Utilizar metodos de ordenacao");
+        printf("7 - Utilizar metodos de ordenacao\n");
         printf("\n");
         fflush(stdin);
         scanf(" %d", &entrada);
@@ -141,7 +154,7 @@ int main()
             printf("Opcoes a ser removidas: \n");
             pLista = ExibirListaPorLetra(ptrDicionario, letra);
             printf("\nEscreva a palavra que deseja remover: \n");
-            scanf(" %s", &palavra);
+            scanf(" %s", palavra);
 
             if(pLista == NULL)
                 printf("Lista nao encontrada");
@@ -194,9 +207,13 @@ int main()
             break;
         default:
             printf("Entrada invalida! \n");
+            limpar_input();
             break;
         }
-        system("pause");
+        
+       
+
+        pausar_tela();
     }
 
     return 0;

@@ -1,6 +1,5 @@
 #include "./headers/ListaPalavras.h"
 
-/*  Implementação com célula cabeça em todas funções   */
 
 int LPIniciaLista(TListaDePalavras *pLista)
 {
