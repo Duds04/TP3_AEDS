@@ -13,9 +13,9 @@ int LPVerificaPalavra(TListaDePalavras *pLista, TPalavra *palavra, int linha)
 {
     int a;
     for(a=0; a<pLista->ultimo; a++){
-        if (!(strcmp(pLista->Lista[a].ItemPalavra.Palavra, palavra->Palavra)))
+        if (!(strcmp(pLista->lPalavra[a].ItemPalavra.Palavra, palavra->Palavra)))
         {
-            InsereLinha(pLista->Lista[a].ItemPalavra.pLinhas, linha);
+            InsereLinha(pLista->lPalavra[a].ItemPalavra.pLinhas, linha);
             return 1;
         }
     }
@@ -30,7 +30,7 @@ int LPInsereFinal(TListaDePalavras *pLista, TPalavra *palavra, int linha)
     }
     if(pLista->ultimo==MaxTam)
         return 0;
-    pLista->Lista[pLista->ultimo].ItemPalavra = *palavra;
+    pLista->lPalavra[pLista->ultimo].ItemPalavra = *palavra;
     pLista->ultimo++;
 
     return 1;
@@ -52,7 +52,7 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
     for(a=0;a<pLista->ultimo;a++)
     {
         printf("\n-----------------------");
-        Palavra = &(pLista->Lista[a].ItemPalavra);
+        Palavra = &(pLista->lPalavra[a].ItemPalavra);
         LImprimePalavra(Palavra);
         printf("-----------------------\n");
         
@@ -62,11 +62,11 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
 int RemovePalavraDada(TListaDePalavras *pLista, char *palavra){
     int a, cont;
     for(a=0; a<pLista->ultimo;a++){
-        if (!(strcmp(pLista->Lista[a].ItemPalavra.Palavra, palavra)))
+        if (!(strcmp(pLista->lPalavra[a].ItemPalavra.Palavra, palavra)))
         {
             pLista->ultimo--;
             for (cont = a+1; cont <= pLista->ultimo; cont++)
-                pLista->Lista[cont - 1] = pLista->Lista[cont];
+                pLista->lPalavra[cont - 1] = pLista->lPalavra[cont];
             return 1;
         }
     }
@@ -78,6 +78,6 @@ int RemovePalavraFinal(TListaDePalavras *pLista)
     int cont;
     pLista->ultimo--;
     for (cont = 1; cont <= pLista->ultimo; cont++)
-        pLista->Lista[cont - 1] = pLista->Lista[cont];
+        pLista->lPalavra[cont - 1] = pLista->lPalavra[cont];
     return 1;
 }

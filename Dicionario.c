@@ -444,6 +444,167 @@ int OrdenaULista(Dicionario *pDicionario)
         break;
     
     case 2:
+    switch (letter)
+    {
+    case 'a':
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'b':
+        for (int i = 0; i < 1; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'c':
+        for (int i = 0; i < 2; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'd':
+        for (int i = 0; i < 3; i++)
+            pAux = pAux->pProx;
+       Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'e':
+        for (int i = 0; i < 4; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'f':
+        for (int i = 0; i < 5; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'g':
+        for (int i = 0; i < 6; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'h':
+        for (int i = 0; i < 7; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'i':
+        for (int i = 0; i < 8; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'j':
+        for (int i = 0; i < 9; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'k':
+        for (int i = 0; i < 10; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'l':
+        for (int i = 0; i < 11; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'm':
+        for (int i = 0; i < 12; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'n':
+        for (int i = 0; i < 13; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'o':
+        for (int i = 0; i < 14; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'p':
+        for (int i = 0; i < 15; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'q':
+        for (int i = 0; i < 16; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'r':
+        for (int i = 0; i < 17; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 's':
+        for (int i = 0; i < 18; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 't':
+        for (int i = 0; i < 19; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'u':
+        for (int i = 0; i < 20; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'v':
+        for (int i = 0; i < 21; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'w':
+        for (int i = 0; i < 22; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'x':
+        for (int i = 0; i < 23; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'y':
+        for (int i = 0; i < 24; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    case 'z':
+        for (int i = 0; i < 25; i++)
+            pAux = pAux->pProx;
+        Bolha(*pAux->pLista);
+        return 0;
+        break;
+    default:
+        printf("Carecter informadao invalido %c", letter);
+        return 1;
+        break;
+    }
         break;
     
     case 3:

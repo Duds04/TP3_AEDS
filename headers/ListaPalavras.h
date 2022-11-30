@@ -10,7 +10,7 @@ typedef struct Celula_LP{
 } TCelulaPalavras;
 
 typedef struct{
-    TCelulaPalavras Lista[MaxTam];
+    TCelulaPalavras lPalavra[MaxTam];
     int primeiro, ultimo;
 } TListaDePalavras;
 
