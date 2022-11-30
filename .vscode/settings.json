@@ -8,6 +8,8 @@
         "listapalavras.h": "c",
         "stdlib.h": "c",
         "ordenacoes.h": "c",
-        "stdio_ext.h": "c"
+        "stdio_ext.h": "c",
+        "time.h": "c",
+        "unistd.h": "c"
     }
 }

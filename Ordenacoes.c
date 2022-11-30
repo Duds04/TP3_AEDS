@@ -1,6 +1,8 @@
 #include "./headers/Ordenacoes.h"
+#include <time.h>
 
-int Insercao(TListaDePalavras Lista){
+
+int Insercao(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, double* tempoExec){
     int i,j;
     TCelulaPalavras aux;
 
@@ -16,7 +18,7 @@ int Insercao(TListaDePalavras Lista){
     LImprimeListaPalavra(&Lista);
 }
 
-void Shellsort (TListaDePalavras Lista){ 
+void Shellsort(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, double* tempoExec){ 
  int i, j; 
  int h = 1;
  TCelulaPalavras aux;
@@ -38,31 +40,51 @@ void Shellsort (TListaDePalavras Lista){
     LImprimeListaPalavra(&Lista);
 }
 
-void Bolha(TListaDePalavras Lista){
+
+void Bolha(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, double* tempoExec){
+    // Calcula tempo gasto na ordenação
+    clock_t start_t, end_t;
+    double tempo;
+    start_t = clock();
+
+    printf("\nGoing to scan a big loop, start_t = %ld\n", start_t);
+
+
     int i, j;
     TCelulaPalavras aux;
+
+    LImprimeListaPalavra(&Lista);
+
 
     for (i = 0; i < Lista.ultimo; i++){
         for(j = 1 ; j < Lista.ultimo; j++ ){
 
-            if (strcmp(Lista.lPalavra[i].ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra)<0){
+            if (strcmp(Lista.lPalavra[j-1].ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra)>0){
                     aux = Lista.lPalavra[j];
                     Lista.lPalavra[j] = Lista.lPalavra[j-1];
                     Lista.lPalavra[j-1] = aux;
+                    printf("%s, %s\n", Lista.lPalavra[j-1].ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra);
                 }
         } 
     }
+
+    LImprimeListaPalavra(&Lista);
+    end_t = clock();
+
+    printf("End of the big loop, end_t = %ld\n", end_t);
+
+    tempo = (double)(end_t - start_t) / CLOCKS_PER_SEC;;
 }
 
-void ConstroiHeapsort(TCelulaPalavras *A, int *n){ 
-    int Esq;
-    Esq = *n / 2 + 1;
-    while (Esq > 1)
-    { 
-        Esq--;
-        Refaz(Esq, *n, A);
-    }
-}
+// void ConstroiHeapsort(TCelulaPalavras *A, int *n){ 
+//     int Esq;
+//     Esq = *n / 2 + 1;
+//     while (Esq > 1)
+//     { 
+//         Esq--;
+//         Refaz(Esq, *n, A);
+//     }
+// }
 
 // void RefazHeapsort(int Esq, int Dir, TCelulaPalavras *A){
 //     int j = Esq * 2;

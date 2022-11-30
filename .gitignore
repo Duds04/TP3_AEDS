@@ -2,3 +2,4 @@ makefile
 exec
 ./.vscode
 teste_lista.c
+.gch
