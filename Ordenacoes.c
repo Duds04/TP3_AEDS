@@ -77,7 +77,7 @@ void Bolha(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double 
                 aux = Lista.lPalavra[j];
                 Lista.lPalavra[j] = Lista.lPalavra[j - 1];
                 Lista.lPalavra[j - 1] = aux;
-                printf("%s, %s\n", Lista.lPalavra[j - 1].ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra);
+                // printf("%s, %s\n", Lista.lPalavra[j - 1].ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra);
                 *(movimentacoes) += 1;
                 *(comparacoes) += 1;
             }
