@@ -123,8 +123,8 @@ int main()
         printf("3 - Remover palavra em uma lista de palavras\n");
         printf("4 - Remover a ultima palavra\n");
         printf("5 - Imprime o dicionario\n");
-        printf("6 - Sair do programa\n");
-        printf("7 - Utilizar metodos de ordenacao\n");
+        printf("6 - Utilizar metodos de ordenacao\n");
+        printf("7 - Sair do programa\n");
         printf("\n");
         limpar_input();
         scanf(" %d", &entrada);
@@ -187,11 +187,6 @@ int main()
             break;
 
         case 6:
-            limpar_tela();
-            return 0;
-            break;
-            
-        case 7:
             printf("[ 1 ] Uma lista em especifico \n[ 2 ] Todo dicionario \n>>> ");
             scanf("%d", &select1);
             switch (select1)
@@ -207,12 +202,15 @@ int main()
                 break;
             }
             break;
+        case 7:
+            limpar_tela();
+            return 0;
+            break;
         default:
             printf("Entrada invalida! \n");
             limpar_input();
             break;
         }
-
         pausar_tela();
     }
 
