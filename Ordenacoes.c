@@ -44,16 +44,9 @@ void Shellsort(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, dou
 void Bolha(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, double* tempoExec){
     // Calcula tempo gasto na ordenação
     clock_t start_t, end_t;
-    double tempo;
     start_t = clock();
-
-    printf("\nGoing to scan a big loop, start_t = %ld\n", start_t);
-
-
     int i, j;
     TCelulaPalavras aux;
-
-    LImprimeListaPalavra(&Lista);
 
 
     for (i = 0; i < Lista.ultimo; i++){
@@ -69,11 +62,11 @@ void Bolha(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, double*
     }
 
     LImprimeListaPalavra(&Lista);
+
     end_t = clock();
-
-    printf("End of the big loop, end_t = %ld\n", end_t);
-
-    tempo = (double)(end_t - start_t) / CLOCKS_PER_SEC;;
+    // printf("\nGoing to scan a big loop, start_t = %ld\n", start_t);
+    // printf("End of the big loop, end_t = %ld\n", end_t);
+    *(tempoExec) = (double)(end_t - start_t) / CLOCKS_PER_SEC;
 }
 
 // void ConstroiHeapsort(TCelulaPalavras *A, int *n){ 

@@ -462,30 +462,30 @@ int OrdenaULista(Dicionario *pDicionario)
     printf("Tempo gasto na ordenacao: %lfs\n", tempoExec);
 
     
-    // // switch (num){
-    // case 1:
-    //     Bolha(*pAux->pLista);
-    //     break;
+    // switch (num){
+    //     case 1:
+    //         Bolha(*pAux->pLista);
+    //         break;
 
-    // case 2:
-    //     Selecao(*pAux->pLista);
-    //     break;
+    //     case 2:
+    //         Selecao(*pAux->pLista);
+    //         break;
 
-    // case 3:
-    //     Insercao(*pAux->pLista);
-    //     break;
-    
-    // case 4:
-    //     Shellsort(*pAux->pLista);
-    //     break;
+    //     case 3:
+    //         Insercao(*pAux->pLista);
+    //         break;
+        
+    //     case 4:
+    //         Shellsort(*pAux->pLista);
+    //         break;
 
-    // case 5:
-    //     Quicksort(*pAux->pLista);
-    //     break;
-    
-    // case 6:
-    //     Heapsort(*pAux->pLista);
-    //     break;
+    //     case 5:
+    //         Quicksort(*pAux->pLista);
+    //         break;
+        
+    //     case 6:
+    //         Heapsort(*pAux->pLista);
+    //         break;
     // }
     
 }

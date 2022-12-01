@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #if defined(__MINGW32__) || defined(_MSC_VER)
 #define limpar_input() fflush(stdin)
@@ -9,7 +10,7 @@
 #include <stdio_ext.h>
 #define limpar_input() __fpurge(stdin)
 #define limpar_tela() system("clear")
-#define pausar_tela()
+#define pausar_tela() printf("\nPress any key to continue..."); limpar_input(); getchar();
 #endif
 
 #include "./headers/Dicionario.h"
