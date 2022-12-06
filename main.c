@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./headers/Dicionario.h"
 #include <unistd.h>
+
 #if defined(__MINGW32__) || defined(_MSC_VER)
 #define limpar_input() fflush(stdin)
 #define limpar_tela() system("cls")
@@ -10,8 +10,10 @@
 #include <stdio_ext.h>
 #define limpar_input() __fpurge(stdin)
 #define limpar_tela() system("clear")
-#define pausar_tela()
+#define pausar_tela() printf("\nPress any key to continue..."); limpar_input(); getchar();
 #endif
+
+#include "./headers/Dicionario.h"
 
 int main()
 {
@@ -100,150 +102,117 @@ int main()
         LPIniciaLista(&LZ);
         CriaListasPorLetra(ptrDicionario, &LZ);
     }
-
-    char *Lista[5] = {"aaa", "ala", "ade", "aca", "aba"};
-    int i, j;
-    char *aux;
-    for (i = 0; i < 5; i++)
+    
+    while (1)
     {
+        int entrada = -1;
+        char letra;
+        char palavra[100];
+        TPalavra Palavra;
+        TListaDePalavras* pLista;
+        char arquivo[30];
+        char caminho[20] = "./entradas/";
+        int select1;
+        limpar_tela();
 
-        for (j = 1; j < 5; j++)
+        // Menu dá acessoa a funcionalidades que não são usadas dentro das funções
+        printf("\n\nMENU\nOBS: Digite os valores numeros das respectivas operacoe\n");
+        printf("Escreva a operacao que deseja realizar:\n");
+        printf("1 - Escrever o nome do arquivo de entrada\n");
+        printf("2 - Buscar lista de palavras no dicionario pela letra\n");
+        printf("3 - Remover palavra em uma lista de palavras\n");
+        printf("4 - Remover a ultima palavra\n");
+        printf("5 - Imprime o dicionario\n");
+        printf("6 - Utilizar metodos de ordenacao\n");
+        printf("7 - Sair do programa\n");
+        printf("\n");
+        limpar_input();
+        scanf(" %d", &entrada);
+        printf("\n");
+
+        switch (entrada)
         {
-            // printf("%s, %s, %d\n", Lista[j], Lista[j-1],strcmp(Lista[j], Lista[j-1]));
-            if ((strcmp(Lista[j], Lista[j - 1])) < 0)
-            {
-                aux = Lista[j];
-                Lista[j] = Lista[j-1];
-                Lista[j - 1] = aux;
+        case 1:
+            // arquivo de entrada tem que estar na pasta entradas do programa
+            printf("Digite o nome do arquivo (com sua extensao .txt): \n");
+            scanf(" %s", arquivo);
+            strcat(caminho, arquivo);
+            ConstroiDicionario(ptrDicionario, caminho);
+            break;
 
-                int a;
-                printf("-\n");
-                for (a = 0; a < 5; a++)
-                {
-                    printf("Palavra: %s\n", Lista[a]);
-                }
+        case 2:
+            printf("Insira a letra para busca de listas: \n");
+            scanf(" %c", &letra);
+            ExibirListaPorLetra(ptrDicionario, letra);
+            break;
+
+        case 3:
+
+            pLista = NULL;
+            printf("Insira a primeira letra da palavra: \n");
+            scanf(" %c", &letra);
+            printf("Opcoes a ser removidas: \n");
+            pLista = ExibirListaPorLetra(ptrDicionario, letra);
+            printf("\nEscreva a palavra que deseja remover: \n");
+            scanf(" %s", palavra);
+
+            if(pLista == NULL)
+                printf("Lista nao encontrada");
+            else{
+                RemovePalavraDada(pLista, palavra);
             }
+            break;
+
+        case 4:
+
+            pLista = NULL;
+            printf("Insira a letra da lista que a sua ultima palavra sera removida: \n");
+            scanf(" %c", &letra);
+            printf("Lista antes da remocao: \n");
+            pLista = ExibirListaPorLetra(ptrDicionario, letra);
+
+            if(pLista->primeiro == pLista->ultimo)
+                printf("Lista nao encontrada\n");
+            else{
+                RemovePalavraFinal(pLista);
+                printf("\nLista depois da remocao: \n");
+                pLista = ExibirListaPorLetra(ptrDicionario, letra);
+                if(pLista->primeiro == pLista->ultimo)
+                    printf("Lista nao encontrada\n");
+            }
+            break;
+
+        case 5:
+            MostrarPlavras(ptrDicionario);
+            break;
+
+        case 6:
+            printf("[ 1 ] Uma lista em especifico \n[ 2 ] Todo dicionario \n>>> ");
+            scanf("%d", &select1);
+            switch (select1)
+            {
+            case 1:
+                OrdenaULista(ptrDicionario);
+                break;
+            case 2:
+                OrdenaTudo(ptrDicionario);
+                break;
+            default:
+                printf("Invalido");
+                break;
+            }
+            break;
+        case 7:
+            limpar_tela();
+            return 0;
+            break;
+        default:
+            printf("Entrada invalida! \n");
+            limpar_input();
+            break;
         }
+        pausar_tela();
     }
-
-    int a;
-    for (a = 0; a < 5; a++)
-    {
-        printf("\n-----------------------");
-        printf("\nPalavra: %s\n", Lista[a]);
-        printf("-----------------------\n");
-    }
-
-    // while (1)
-    // {
-    //     int entrada = -1;
-    //     char letra;
-    //     char palavra[100];
-    //     TPalavra Palavra;
-    //     TListaDePalavras* pLista;
-    //     char arquivo[30];
-    //     char caminho[20] = "./entradas/";
-    //     int select1;
-    //     limpar_tela();
-
-    //     // Menu dá acessoa a funcionalidades que não são usadas dentro das funções
-    //     printf("\n\nMENU\nOBS: Digite os valores numeros das respectivas operacoe\n");
-    //     printf("Escreva a operacao que deseja realizar:\n");
-    //     printf("1 - Escrever o nome do arquivo de entrada\n");
-    //     printf("2 - Buscar lista de palavras no dicionario pela letra\n");
-    //     printf("3 - Remover palavra em uma lista de palavras\n");
-    //     printf("4 - Remover a ultima palavra\n");
-    //     printf("5 - Imprime o dicionario\n");
-    //     printf("6 - Sair do programa\n");
-    //     printf("7 - Utilizar metodos de ordenacao\n");
-    //     printf("\n");
-    //     fflush(stdin);
-    //     scanf(" %d", &entrada);
-    //     printf("\n");
-
-    //     switch (entrada)
-    //     {
-    //     case 1:
-    //         // arquivo de entrada tem que estar na pasta entradas do programa
-    //         printf("Digite o nome do arquivo (com sua extensao .txt): \n");
-    //         scanf(" %s", arquivo);
-    //         strcat(caminho, arquivo);
-    //         ConstroiDicionario(ptrDicionario, caminho);
-    //         break;
-
-    //     case 2:
-    //         printf("Insira a letra para busca de listas: \n");
-    //         scanf(" %c", &letra);
-    //         ExibirListaPorLetra(ptrDicionario, letra);
-    //         break;
-
-    //     case 3:
-
-    //         pLista = NULL;
-    //         printf("Insira a primeira letra da palavra: \n");
-    //         scanf(" %c", &letra);
-    //         printf("Opcoes a ser removidas: \n");
-    //         pLista = ExibirListaPorLetra(ptrDicionario, letra);
-    //         printf("\nEscreva a palavra que deseja remover: \n");
-    //         scanf(" %s", palavra);
-
-    //         if(pLista == NULL)
-    //             printf("Lista nao encontrada");
-    //         else{
-    //             RemovePalavraDada(pLista, palavra);
-    //         }
-    //         break;
-
-    //     case 4:
-
-    //         pLista = NULL;
-    //         printf("Insira a letra da lista que a sua ultima palavra sera removida: \n");
-    //         scanf(" %c", &letra);
-    //         printf("Lista antes da remocao: \n");
-    //         pLista = ExibirListaPorLetra(ptrDicionario, letra);
-
-    //         if(pLista->primeiro == pLista->ultimo)
-    //             printf("Lista nao encontrada\n");
-    //         else{
-    //             RemovePalavraFinal(pLista);
-    //             printf("\nLista depois da remocao: \n");
-    //             pLista = ExibirListaPorLetra(ptrDicionario, letra);
-    //             if(pLista->primeiro == pLista->ultimo)
-    //                 printf("Lista nao encontrada\n");
-    //         }
-    //         break;
-
-    //     case 5:
-    //         MostrarPlavras(ptrDicionario);
-    //         break;
-
-    //     case 6:
-    //         return 0;
-    //         break;
-    //     case 7:
-    //         printf("[ 1 ] Uma lista em especifico \n[ 2 ] Todo dicionario \n>>> ");
-    //         scanf("%d", &select1);
-    //         switch (select1)
-    //         {
-    //         case 1:
-    //             OrdenaULista(ptrDicionario);
-    //             break;
-    //         case 2:
-    //             OrdenaTudo(ptrDicionario);
-    //             break;
-    //         default:
-    //             printf("Invalido");
-    //             break;
-    //         }
-    //         break;
-    //     default:
-    //         printf("Entrada invalida! \n");
-    //         limpar_input();
-    //         break;
-    //     }
-
-    //     pausar_tela();
-    // }
 
     return 0;
 }
