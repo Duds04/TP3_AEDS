@@ -124,7 +124,8 @@ int main()
         printf("4 - Remover a ultima palavra\n");
         printf("5 - Imprime o dicionario\n");
         printf("6 - Utilizar metodos de ordenacao\n");
-        printf("7 - Sair do programa\n");
+        printf("7 - Deseja limpar o Dicionario?\n");
+        printf("8 - Sair do programa\n");
         printf("\n");
         limpar_input();
         scanf(" %d", &entrada);
@@ -203,6 +204,9 @@ int main()
             }
             break;
         case 7:
+            printf("Dicionario esta limpo!\n");
+            limpar_dicionario(ptrDicionario);
+        case 8:
             limpar_tela();
             return 0;
             break;
