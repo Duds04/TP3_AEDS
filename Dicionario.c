@@ -1,4 +1,5 @@
 #include "./headers/Dicionario.h"
+#define pausar_tela() system("pause")
 
 // criando dicionario vazio com celula cabeca
 void InicializaDicionario(Dicionario *pDicionario)
@@ -222,13 +223,13 @@ int OrdenaULista(Dicionario *pDicionario)
 
 void limpar_dicionario(Dicionario *pDicionario){
 
-    // pCelulaDicionario pAux;
+    pCelulaDicionario pAux;
 
-    // pAux = pDicionario->pPrimeiro->pProx;
+    pAux = pDicionario->pPrimeiro->pProx;
+    
+    while (pAux != NULL){
 
-    // while (pAux != NULL){
-
-    //     pAux->pLista->ultimo = pAux->pLista->primeiro;
-    //     pAux = pAux->pProx;
-    // }
+        pAux->pLista->ultimo = pAux->pLista->primeiro;
+        pAux = pAux->pProx;
+    }
 }

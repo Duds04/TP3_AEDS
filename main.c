@@ -104,7 +104,7 @@ int main()
     }
     
     while (1)
-    {
+    {   
         int entrada = -1;
         char letra;
         char palavra[100];
@@ -204,16 +204,20 @@ int main()
             }
             break;
         case 7:
-            printf("Dicionario esta limpo!\n");
             limpar_dicionario(ptrDicionario);
+            printf("Dicionario esta limpo!\n\n");
+            break;
+
         case 8:
             limpar_tela();
             return 0;
             break;
+
         default:
             printf("Entrada invalida! \n");
             limpar_input();
             break;
+
         }
         pausar_tela();
     }
