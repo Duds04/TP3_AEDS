@@ -16,3 +16,7 @@ void QsOrdena(int Esq, int Dir, TCelulaPalavras *lpalavras, int* comparacoes, in
 void QsParticao(int Esq, int Dir,int *i, int *j, TCelulaPalavras *lpalavras, int* comparacoes, int* movimentacoes);
 
 void Heapsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double *tempoExec);
+
+void HS_Constroi(TCelulaPalavras *lpalavras, int n, int *comparacoes, int *movimentacoes, double *tempoExec);
+
+void HS_Refaz(int Esq, int Dir, TCelulaPalavras *lpalavras, int *comparacoes, int *movimentacoes, double *tempoExec);

@@ -167,39 +167,6 @@ void QsParticao(int Esq, int Dir, int *i, int *j, TCelulaPalavras *lpalavras, in
     }while (*i <= *j);
 }
 
-void HS_Refaz(int Esq, int Dir, TListaDePalavras* v1, int *comparacoes, int *movimentacoes, double *tempoExec)
-{
-    int j = Esq * 2;
-    char* aux = v1->lPalavra[Esq].ItemPalavra.Palavra;
-    while (j < Dir)
-    {
-        
-        if ((j < Dir) && ((strcmp(v1->lPalavra[j].ItemPalavra.Palavra, v1->lPalavra[j + 1].ItemPalavra.Palavra) < 0))){
-            j++;
-            *(comparacoes) =  *(comparacoes) + 1;
-        }
-        if (strcmp(aux, v1->lPalavra[j].ItemPalavra.Palavra) >= 0){
-            *(comparacoes) =  *(comparacoes) + 1;
-            break;
-        }
-        v1->lPalavra[Esq] = v1->lPalavra[j];
-        Esq = j;
-        j = Esq * 2;
-    }
-    v1->lPalavra[Esq].ItemPalavra.Palavra = aux;
-}
-
-void HS_Constroi(TListaDePalavras* v1, int *n, int *comparacoes, int *movimentacoes, double *tempoExec)
-{
-    int Esq;
-    Esq = *n / 2 + 1;
-    while (Esq > 1)
-    {
-        Esq--;
-        HS_Refaz(Esq, *n, v1, comparacoes, movimentacoes, tempoExec);
-    }
-}
-
 void Heapsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double *tempoExec)
 {
     clock_t start_t, end_t;
@@ -207,32 +174,62 @@ void Heapsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, doub
 
     int Esq, Dir, n;
     TCelulaPalavras  aux;
-    n = Lista.ultimo;
-    Lista.lPalavra[n].ItemPalavra =  Lista.lPalavra[0].ItemPalavra; // passando a primeira palavra para o final
-    LImprimeListaPalavra(&Lista);
+    TCelulaPalavras *lpalavras;
 
-    HS_Constroi(&Lista, &n, comparacoes, movimentacoes, tempoExec); /* constroi o heap */
+    lpalavras = Lista.lPalavra;
+    n = Lista.ultimo;
+
+    HS_Constroi(lpalavras, n, comparacoes, movimentacoes, tempoExec); /* constroi o heap */
+
     Esq = 1;
     Dir = n;
+
     while (Dir > 1)
     { /* ordena o vetor */
-        aux = Lista.lPalavra[1];
-        Lista.lPalavra[1] = Lista.lPalavra[Dir];
-        Lista.lPalavra[Dir] = aux;
-        *(movimentacoes) =  *(movimentacoes) + 1;
+        aux = lpalavras[0];
+        lpalavras[0] = lpalavras[Dir-1];
+        lpalavras[Dir-1] = aux;
+        (*movimentacoes) ++;
         Dir--;
-        HS_Refaz(Esq, Dir, &Lista, comparacoes, movimentacoes, tempoExec);
+        HS_Refaz(Esq, Dir, lpalavras, comparacoes, movimentacoes, tempoExec);
     }
 
-    printf("\n\n\n\nOrganizado\n-----\n");
-    for (int i = 1; i <= n; i++)
-    {
-        printf("\n-----------------------");
-        LImprimePalavra(&(Lista.lPalavra[i].ItemPalavra));
-        printf("-----------------------\n");       
-    }
-    printf("-----\n");
+    printf("Ordenado:\n");
+    LImprimeListaPalavra(&Lista);
 
     end_t = clock();
     *(tempoExec) = (double)(end_t - start_t) / CLOCKS_PER_SEC;
+}
+
+void HS_Constroi(TCelulaPalavras *lpalavras, int n, int *comparacoes, int *movimentacoes, double *tempoExec)
+{
+    int Esq;
+    Esq = (n / 2);
+
+    while (Esq >= 1){
+        HS_Refaz(Esq, n, lpalavras, comparacoes, movimentacoes, tempoExec);
+        Esq--;
+    }
+}
+
+void HS_Refaz(int Esq, int Dir, TCelulaPalavras *lpalavras, int *comparacoes, int *movimentacoes, double *tempoExec)
+{
+    int j = (Esq * 2);
+    TCelulaPalavras aux = lpalavras[Esq-1];
+
+    while (j <= Dir){
+
+        (*comparacoes) ++;
+        if ((j < Dir) && ((strcmp(lpalavras[j-1].ItemPalavra.Palavra, lpalavras[j].ItemPalavra.Palavra) < 0)))
+            j++;
+
+        (*comparacoes) ++;
+        if (strcmp(aux.ItemPalavra.Palavra, lpalavras[j-1].ItemPalavra.Palavra) >= 0)
+            break;
+
+        lpalavras[Esq-1] = lpalavras[j-1];
+        Esq = j;
+        j = Esq * 2;
+    }
+    lpalavras[Esq-1] = aux;
 }
