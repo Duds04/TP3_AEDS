@@ -21,3 +21,4 @@ TListaDePalavras* ExibirListaPorLetra(Dicionario* pDicionario, char letra);
 void MostrarPlavras(Dicionario* pDicionario);
 void OrdenaTudo(Dicionario *pDicionario);
 int OrdenaULista(Dicionario *pDicionario);
+void limpar_dicionario(Dicionario *pDicionario);

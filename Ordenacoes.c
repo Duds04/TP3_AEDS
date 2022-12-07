@@ -232,4 +232,3 @@ void HS_Refaz(int Esq, int Dir, TCelulaPalavras *lpalavras, int *comparacoes, in
         j = Esq * 2;
     }
     lpalavras[Esq-1] = aux;
-}

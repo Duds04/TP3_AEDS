@@ -117,65 +117,48 @@ void OrdenaTudo(Dicionario *pDicionario)
     int cont = 0;
     char alphabt[28] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    switch (num)
-    {
-    case 1:
-        while (pAux != NULL)
-        {
-            if (pAux->pLista->primeiro != pAux->pLista->ultimo)
-            {
+    while (pAux != NULL){
+            if (pAux->pLista->primeiro != pAux->pLista->ultimo){
+
                 printf("***************************\n");
                 printf("\n\nLetra: %c\n\n", alphabt[cont]);
-                Bolha(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+
+                switch (num){
+                    case 1:
+                        Bolha(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+
+                    case 2:
+                        Selecao(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);    
+                        break;
+
+                    case 3:
+                        Insercao(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+
+                    case 4:
+                        Shellsort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+
+                    case 5:
+                        Quicksort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+
+                    case 6:
+                        Heapsort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+                    default:
+                        printf("Inválido");
+                        break;
+                }
             }
-            pAux = pAux->pProx;
-            cont++;
-        }
-        printf("Tempo gasto na ordenacao: %lfs\n", tempoExec);
-        printf("Quantidade de movimentacoes feitas na ordenacao: %d\n", movimentacoes);
-        printf("Quantidade de comparacoes feitas na ordenacao: %d\n", comparacoes);
-        break;
-
-    case 2:
-        break;
-
-    case 3:
-        while (pAux != NULL)
-        {
-            if (pAux->pLista->primeiro != pAux->pLista->ultimo)
-            {
-                printf("***************************\n");
-                printf("\n\nLetra: %c\n\n", alphabt[cont]);
-                Insercao(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
-            }
-            pAux = pAux->pProx;
-            cont++;
-        }
-        break;
-
-    case 4:
-        while (pAux != NULL)
-        {
-            if (pAux->pLista->primeiro != pAux->pLista->ultimo)
-            {
-                printf("***************************\n");
-                printf("\n\nLetra: %c\n\n", alphabt[cont]);
-                Shellsort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
-            }
-            pAux = pAux->pProx;
-            cont++;
-        }
-        break;
-
-    case 5:
-        break;
-
-    case 6:
-        break;
-    default:
-        printf("Inválido");
-        break;
+                pAux = pAux->pProx;
+                cont++;
     }
+    
+    printf("Tempo gasto na ordenacao: %lfs\n", tempoExec);
+    printf("Quantidade de movimentacoes feitas na ordenacao: %d\n", movimentacoes);
+    printf("Quantidade de comparacoes feitas na ordenacao: %d\n", comparacoes);
 }
 
 int OrdenaULista(Dicionario *pDicionario)
@@ -235,4 +218,17 @@ int OrdenaULista(Dicionario *pDicionario)
     printf("Tempo gasto na ordenacao: %lfs\n", tempoExec);
     printf("Quantidade de movimentacoes feitas na ordenacao: %d\n", movimentacoes);
     printf("Quantidade de comparacoes feitas na ordenacao: %d\n", comparacoes);
+}
+
+void limpar_dicionario(Dicionario *pDicionario){
+
+    // pCelulaDicionario pAux;
+
+    // pAux = pDicionario->pPrimeiro->pProx;
+
+    // while (pAux != NULL){
+
+    //     pAux->pLista->ultimo = pAux->pLista->primeiro;
+    //     pAux = pAux->pProx;
+    // }
 }
