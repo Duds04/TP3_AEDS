@@ -15,4 +15,4 @@ void QsOrdena(int Esq, int Dir, TCelulaPalavras *lpalavras, int* comparacoes, in
 
 void QsParticao(int Esq, int Dir,int *i, int *j, TCelulaPalavras *lpalavras, int* comparacoes, int* movimentacoes);
 
-void Heapsort(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, double* tempoExec);
+void Heapsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double *tempoExec);
