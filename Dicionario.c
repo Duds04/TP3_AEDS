@@ -106,12 +106,16 @@ void MostrarPlavras(Dicionario *pDicionario)
 
 void OrdenaTudo(Dicionario *pDicionario)
 {
-    int num, comparacoes, movimentacoes;
-    double tempoExec;
+    int num, comparacoes, movimentacoes, quantidade;
+    double tempoExec, MDtempo;
+    float MDmovimentos, MDcomparacoes;
+
     comparacoes = 0;
     movimentacoes = 0;
     tempoExec = 0.0;
-    printf("Qual ordenação deseja usar?\n[ 1 ] Bolha\n[ 2 ] Selecao\n[ 3 ] Insercao\n[ 4 ] Shellsort\n[ 5 ] Quicksort\n [ 6 ] Heapsort\n >>> ");
+    quantidade = 0;
+
+    printf("Qual ordenacao deseja usar?\n[ 1 ] Bolha\n[ 2 ] Selecao\n[ 3 ] Insercao\n[ 4 ] Shellsort\n[ 5 ] Quicksort\n[ 6 ] Heapsort\n >>> ");
     scanf("%d", &num);
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
@@ -123,6 +127,7 @@ void OrdenaTudo(Dicionario *pDicionario)
 
                 printf("***************************\n");
                 printf("\n\nLetra: %c\n\n", alphabt[cont]);
+                quantidade++;
 
                 switch (num){
                     case 1:
@@ -157,9 +162,20 @@ void OrdenaTudo(Dicionario *pDicionario)
                 cont++;
     }
     
-    printf("Tempo gasto na ordenacao: %lfs\n", tempoExec);
-    printf("Quantidade de movimentacoes feitas na ordenacao: %d\n", movimentacoes);
-    printf("Quantidade de comparacoes feitas na ordenacao: %d\n", comparacoes);
+    MDtempo = tempoExec/quantidade;
+    MDmovimentos = movimentacoes/quantidade;
+    MDcomparacoes = comparacoes/quantidade;
+    
+    if (quantidade != 0){
+        printf("\nTempo gasto na ordenacao: %lfs\n", tempoExec);
+        printf("Quantidade de movimentacoes feitas na ordenacao: %d\n", movimentacoes);
+        printf("Quantidade de comparacoes feitas na ordenacao: %d\n\n", comparacoes);
+        printf("***************************\n");
+        printf("\nTempo medio gasto na ordenacao: %lf\n", MDtempo);
+        printf("Quantidade media de movimentacoes feitas na ordenacao: %f\n", MDmovimentos);
+        printf("Quantidade media de comparacoes feitas na ordenacao: %f\n", MDcomparacoes);
+        printf("%d\n", quantidade);
+    }
 }
 
 int OrdenaULista(Dicionario *pDicionario)

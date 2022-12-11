@@ -12,12 +12,17 @@ int Insercao(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, doubl
     {
         aux = Lista.lPalavra[i];
         j = i - 1;
+        (*comparacoes) ++;
+
         while ((j >= 0) && (strcmp(aux.ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra) < 0))
         {
             Lista.lPalavra[j + 1] = Lista.lPalavra[j];
             j--;
+            (*comparacoes) ++;
+            (*movimentacoes) ++;
         }
         Lista.lPalavra[j + 1] = aux;
+        (*movimentacoes) ++; //estou considerando por enquanto esse
     }
     LImprimeListaPalavra(&Lista);
 
@@ -43,14 +48,18 @@ void Shellsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, dou
         {
             aux = Lista.lPalavra[i];
             j = i;
+            (*comparacoes) ++;
             while (strcmp(Lista.lPalavra[j - h].ItemPalavra.Palavra, aux.ItemPalavra.Palavra) > 0)
             {
                 Lista.lPalavra[j] = Lista.lPalavra[j - h];
                 j -= h;
+                (*comparacoes) ++;
+                (*movimentacoes) ++;
                 if (j < h)
                     break;
             }
             Lista.lPalavra[j] = aux;
+            (*movimentacoes) ++;// por enquanto
         }
     } while (h != 1);
     LImprimeListaPalavra(&Lista);
@@ -71,15 +80,14 @@ void Bolha(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double 
     {
         for (j = 1; j < Lista.ultimo; j++)
         {
+            *(comparacoes) += 1;
 
             if (strcmp(Lista.lPalavra[j - 1].ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra) > 0)
             {
                 aux = Lista.lPalavra[j];
                 Lista.lPalavra[j] = Lista.lPalavra[j - 1];
                 Lista.lPalavra[j - 1] = aux;
-                // printf("%s, %s\n", Lista.lPalavra[j - 1].ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra);
                 *(movimentacoes) += 1;
-                *(comparacoes) += 1;
             }
         }
     }
@@ -131,7 +139,7 @@ void QsOrdena(int Esq, int Dir, TCelulaPalavras *lpalavras, int* comparacoes, in
 
     QsParticao(Esq, Dir, &i, &j, lpalavras, comparacoes, movimentacoes);
 
-    (*comparacoes) ++;
+    (*comparacoes) ++;// considero?
     if (Esq < j) 
         QsOrdena(Esq, j, lpalavras, comparacoes, movimentacoes);
 
@@ -151,10 +159,13 @@ void QsParticao(int Esq, int Dir, int *i, int *j, TCelulaPalavras *lpalavras, in
 
     do{
 
+        (*comparacoes) ++;
         while (strcmp(pivo.Palavra, lpalavras[*i].ItemPalavra.Palavra) > 0) (*i)++; (*comparacoes) ++;   //Qual do lado esquerdo ta errado
 
-        while (strcmp(pivo.Palavra, lpalavras[*j].ItemPalavra.Palavra) < 0) (*j)--; (*comparacoes) ++;   //Qual do lado direito ta errado
         (*comparacoes) ++;
+        while (strcmp(pivo.Palavra, lpalavras[*j].ItemPalavra.Palavra) < 0) (*j)--; (*comparacoes) ++;   //Qual do lado direito ta errado
+
+        (*comparacoes) ++;// considero?
         if (*i <= *j){
             aux = lpalavras[*i];
             lpalavras[*i] = lpalavras[*j];    //trocando os lugares que sao estao na posição errada
@@ -163,7 +174,7 @@ void QsParticao(int Esq, int Dir, int *i, int *j, TCelulaPalavras *lpalavras, in
             (*j)--;
             (*movimentacoes) ++;
         }
-        (*comparacoes) ++;
+        (*comparacoes) ++;// considero?
     }while (*i <= *j);
 }
 
@@ -230,6 +241,8 @@ void HS_Refaz(int Esq, int Dir, TCelulaPalavras *lpalavras, int *comparacoes, in
         lpalavras[Esq-1] = lpalavras[j-1];
         Esq = j;
         j = Esq * 2;
+        (*movimentacoes) ++;
     }
     lpalavras[Esq-1] = aux;
+    (*movimentacoes) ++; // considero?
 }
