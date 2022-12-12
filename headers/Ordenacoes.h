@@ -1,4 +1,6 @@
 #include "ListaPalavras.h"
+#include <time.h>
+
 
 //comparacoes, movimentacoes e tempoExec são parametros resultados (serão usados dentro da funcao)
 void Bolha(TListaDePalavras Lista, double* comparacoes, double* movimentacoes, double* tempoExec); 

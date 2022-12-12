@@ -131,6 +131,10 @@ void OrdenaTudo(Dicionario *pDicionario, int caso, double* temp, double* comp, d
     int cont = 0;
     char alphabt[28] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    // Calcula tempo gasto na ordenação
+    clock_t start_t, end_t;
+    start_t = clock();
+
     while (pAux != NULL){
             if (pAux->pLista->primeiro != pAux->pLista->ultimo){
 
@@ -170,21 +174,24 @@ void OrdenaTudo(Dicionario *pDicionario, int caso, double* temp, double* comp, d
                 pAux = pAux->pProx;
                 cont++;
     }
+    end_t = clock();
+    tempoExec = (double)(end_t - start_t) / CLOCKS_PER_SEC;
     
     MDtempo = tempoExec/quantidade;
     MDmovimentos = movimentacoes/quantidade;
     MDcomparacoes = comparacoes/quantidade;
     
     if (quantidade != 0){
-        printf("\nTempo gasto na ordenacao: %lfs\n", tempoExec);
+        printf("\nTempo gasto na ordenacao: %lf segundos\n", tempoExec);
         printf("Quantidade de movimentacoes feitas na ordenacao: %.2lf\n", movimentacoes);
         printf("Quantidade de comparacoes feitas na ordenacao: %.2lf\n\n", comparacoes);
         printf("***************************\n");
         printf("Tivemos %.2lf listas validas, logo:\n", quantidade);
-        printf("\nO Tempo medio gasto na ordenacao: %lf\n", MDtempo);
+        printf("\nO Tempo medio gasto na ordenacao: %lf segundos\n", MDtempo);
         printf("A quantidade media de movimentacoes: %.2lf\n", MDmovimentos);
         printf("A quantidade media de comparacoes: %.2lf\n\n", MDcomparacoes);
     }
+    else printf("\nNao teve nenhuma lista valida\n");
     
     if (quantidade != 0 && caso == 7){
             (*temp) += tempoExec;
@@ -202,8 +209,6 @@ void OrdenaTudo(Dicionario *pDicionario, int caso, double* temp, double* comp, d
             }
 
         }
-    else
-        printf("\nNao teve nenhuma lista valida\n");
     
 }
 
@@ -233,6 +238,10 @@ int OrdenaULista(Dicionario *pDicionario)
 
     for (int i = 0; i < tam; i++)
         pAux = pAux->pProx;
+    
+    // Calcula tempo gasto na ordenação
+    clock_t start_t, end_t;
+    start_t = clock();
 
     switch (num)
     {
@@ -259,9 +268,16 @@ int OrdenaULista(Dicionario *pDicionario)
     case 6:
         Heapsort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
         break;
+
+    default:
+            printf("Inválido");
+            break;
     }
 
-    printf("Tempo gasto na ordenacao: %lfs\n", tempoExec);
+    end_t = clock();
+    tempoExec = (double)(end_t - start_t) / CLOCKS_PER_SEC;
+
+    printf("Tempo gasto na ordenacao: %lf segundos\n", tempoExec);
     printf("Quantidade de movimentacoes feitas na ordenacao: %.2lf\n", movimentacoes);
     printf("Quantidade de comparacoes feitas na ordenacao: %2.lf\n", comparacoes);
 }
