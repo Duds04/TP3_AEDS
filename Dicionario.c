@@ -1,5 +1,16 @@
 #include "./headers/Dicionario.h"
 
+#if defined(__MINGW32__) || defined(_MSC_VER)
+#define limpar_input() fflush(stdin)
+#define limpar_tela() system("cls")
+#define pausar_tela() system("pause")
+#else
+#include <stdio_ext.h>
+#define limpar_input() __fpurge(stdin)
+#define limpar_tela() system("clear")
+#define pausar_tela() printf("\nPress any key to continue..."); limpar_input(); getchar();
+#endif
+
 // criando dicionario vazio com celula cabeca
 void InicializaDicionario(Dicionario *pDicionario)
 {
@@ -59,7 +70,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     }
     else
     {
-        fprintf(stderr, "Erro ao abrir o arquivo");
+        fprintf(stderr, "Erro ao abrir o arquivo\n");
         return 0;
     }
     fclose(arquivo);
@@ -103,91 +114,109 @@ void MostrarPlavras(Dicionario *pDicionario)
     }
 }
 
-void OrdenaTudo(Dicionario *pDicionario)
+void OrdenaTudo(Dicionario *pDicionario, int caso, double* temp, double* comp, double* movi, double* quant)
 {
-    int num, comparacoes, movimentacoes;
-    double tempoExec;
-    comparacoes = 0;
-    movimentacoes = 0;
+    int num;
+    double tempoExec, MDtempo, comparacoes, movimentacoes, quantidade, MDmovimentos, MDcomparacoes;
+
+    comparacoes = 0.0;
+    movimentacoes = 0.0;
     tempoExec = 0.0;
-    printf("Qual ordenação deseja usar?\n[ 1 ] Bolha\n[ 2 ] Selecao\n[ 3 ] Insercao\n[ 4 ] Shellsort\n[ 5 ] Quicksort\n [ 6 ] Heapsort\n >>> ");
+    quantidade = 0.0;
+
+    printf("Qual ordenacao deseja usar?\n[ 1 ] Bolha\n[ 2 ] Selecao\n[ 3 ] Insercao\n[ 4 ] Shellsort\n[ 5 ] Quicksort\n[ 6 ] Heapsort\n >>> ");
     scanf("%d", &num);
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
     int cont = 0;
     char alphabt[28] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    switch (num)
-    {
-    case 1:
-        while (pAux != NULL)
-        {
-            if (pAux->pLista->primeiro != pAux->pLista->ultimo)
-            {
+    while (pAux != NULL){
+            if (pAux->pLista->primeiro != pAux->pLista->ultimo){
+
                 printf("***************************\n");
                 printf("\n\nLetra: %c\n\n", alphabt[cont]);
-                Bolha(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                quantidade++;
+
+                switch (num){
+                    case 1:
+                        Bolha(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+
+                    case 2:
+                        Selecao(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);    
+                        break;
+
+                    case 3:
+                        Insercao(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+
+                    case 4:
+                        Shellsort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+
+                    case 5:
+                        Quicksort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+
+                    case 6:
+                        Heapsort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
+                        break;
+                    default:
+                        printf("Inválido");
+                        break;
+                }
             }
-            pAux = pAux->pProx;
-            cont++;
-        }
-        printf("Tempo gasto na ordenacao: %lfs\n", tempoExec);
-        printf("Quantidade de movimentacoes feitas na ordenacao: %d\n", movimentacoes);
-        printf("Quantidade de comparacoes feitas na ordenacao: %d\n", comparacoes);
-        break;
-
-    case 2:
-        break;
-
-    case 3:
-        while (pAux != NULL)
-        {
-            if (pAux->pLista->primeiro != pAux->pLista->ultimo)
-            {
-                printf("***************************\n");
-                printf("\n\nLetra: %c\n\n", alphabt[cont]);
-                Insercao(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
-            }
-            pAux = pAux->pProx;
-            cont++;
-        }
-        break;
-
-    case 4:
-        while (pAux != NULL)
-        {
-            if (pAux->pLista->primeiro != pAux->pLista->ultimo)
-            {
-                printf("***************************\n");
-                printf("\n\nLetra: %c\n\n", alphabt[cont]);
-                Shellsort(*pAux->pLista, &comparacoes, &movimentacoes, &tempoExec);
-            }
-            pAux = pAux->pProx;
-            cont++;
-        }
-        break;
-
-    case 5:
-        break;
-
-    case 6:
-        break;
-    default:
-        printf("Inválido");
-        break;
+                pAux = pAux->pProx;
+                cont++;
     }
+    
+    MDtempo = tempoExec/quantidade;
+    MDmovimentos = movimentacoes/quantidade;
+    MDcomparacoes = comparacoes/quantidade;
+    
+    if (quantidade != 0){
+        printf("\nTempo gasto na ordenacao: %lfs\n", tempoExec);
+        printf("Quantidade de movimentacoes feitas na ordenacao: %.2lf\n", movimentacoes);
+        printf("Quantidade de comparacoes feitas na ordenacao: %.2lf\n\n", comparacoes);
+        printf("***************************\n");
+        printf("Tivemos %.2lf listas validas, logo:\n", quantidade);
+        printf("\nO Tempo medio gasto na ordenacao: %lf\n", MDtempo);
+        printf("A quantidade media de movimentacoes: %.2lf\n", MDmovimentos);
+        printf("A quantidade media de comparacoes: %.2lf\n\n", MDcomparacoes);
+    }
+    
+    if (quantidade != 0 && caso == 7){
+            (*temp) += tempoExec;
+            (*comp) += comparacoes;
+            (*movi) += movimentacoes;
+            (*quant) += quantidade;
+
+            if ((*movi) != movimentacoes){
+                pausar_tela();
+                limpar_tela();
+                printf("Tivemos uma media de %.2lf validas nos dois dicionarios\n", (*quant)/2);
+                printf("\nO Tempo medio gasto nas ordenacao: %lf\n", (*temp)/2);
+                printf("A quantidade media de movimentacoes:: %.2lf\n", (*movi)/2);
+                printf("A quantidade media de comparacoes: %.2lf\n\n", (*comp)/2);
+            }
+
+        }
+    else
+        printf("\nNao teve nenhuma lista valida\n");
+    
 }
 
 int OrdenaULista(Dicionario *pDicionario)
 {
     char letter;
-    int num, tam, comparacoes, movimentacoes;
-    double tempoExec;
+    int num, tam;
+    double tempoExec, comparacoes, movimentacoes;
     pCelulaDicionario pAux;
 
     pAux = pDicionario->pPrimeiro->pProx;
-    comparacoes = 0;
-    movimentacoes = 0;
+    comparacoes = 0.0;
+    movimentacoes = 0.0;
     tempoExec = 0.0;
 
     printf("Qual ordenacaoo deseja usar?\n[ 1 ] Bolha\n[ 2 ] Selecao\n[ 3 ] Insercao\n[ 4 ] Shellsort\n[ 5 ] Quicksort\n[ 6 ] Heapsort\n >>> ");
@@ -233,6 +262,19 @@ int OrdenaULista(Dicionario *pDicionario)
     }
 
     printf("Tempo gasto na ordenacao: %lfs\n", tempoExec);
-    printf("Quantidade de movimentacoes feitas na ordenacao: %d\n", movimentacoes);
-    printf("Quantidade de comparacoes feitas na ordenacao: %d\n", comparacoes);
+    printf("Quantidade de movimentacoes feitas na ordenacao: %.2lf\n", movimentacoes);
+    printf("Quantidade de comparacoes feitas na ordenacao: %2.lf\n", comparacoes);
+}
+
+void limpar_dicionario(Dicionario *pDicionario){
+
+    pCelulaDicionario pAux;
+
+    pAux = pDicionario->pPrimeiro->pProx;
+    
+    while (pAux != NULL){
+
+        pAux->pLista->ultimo = pAux->pLista->primeiro;
+        pAux = pAux->pProx;
+    }
 }

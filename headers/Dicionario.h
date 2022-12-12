@@ -19,5 +19,6 @@ void CriaListasPorLetra(Dicionario *pDicionario, TListaDePalavras *pLista);   //
 int ConstroiDicionario(Dicionario* pDicionario, char* pTexto);
 TListaDePalavras* ExibirListaPorLetra(Dicionario* pDicionario, char letra);
 void MostrarPlavras(Dicionario* pDicionario);
-void OrdenaTudo(Dicionario *pDicionario);
+void OrdenaTudo(Dicionario *pDicionario, int caso, double* temp, double* comp, double* movi, double* quant);
 int OrdenaULista(Dicionario *pDicionario);
+void limpar_dicionario(Dicionario *pDicionario);
