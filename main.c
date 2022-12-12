@@ -113,6 +113,8 @@ int main()
         char arquivo[30];
         char caminho[20] = "./entradas/";
         int select1;
+        double temp = 0.0, comp = 0.0, movi = 0.0, quant = 0.0;
+
         limpar_tela();
 
         // Menu dá acessoa a funcionalidades que não são usadas dentro das funções
@@ -124,8 +126,9 @@ int main()
         printf("4 - Remover a ultima palavra\n");
         printf("5 - Imprime o dicionario\n");
         printf("6 - Utilizar metodos de ordenacao\n");
-        printf("7 - Deseja limpar o Dicionario?\n");
-        printf("8 - Sair do programa\n");
+        printf("7 - Deseja fazer a media entre dois dicionarios?\n");
+        printf("8 - Deseja limpar o Dicionario?\n");
+        printf("9 - Sair do programa\n");
         printf("\n");
         limpar_input();
         scanf(" %d", &entrada);
@@ -196,19 +199,39 @@ int main()
                 OrdenaULista(ptrDicionario);
                 break;
             case 2:
-                OrdenaTudo(ptrDicionario);
+                OrdenaTudo(ptrDicionario, entrada, &temp, &comp, &movi, &quant);
                 break;
             default:
                 printf("Invalido");
                 break;
             }
             break;
-        case 7:
+
+        case 7: 
+            for (int i = 0; i < 2; i++){
+                char caminho[20] = "./entradas/";
+                limpar_dicionario(ptrDicionario);
+                printf("Digite o nome do %d arquivo (com sua extensao .txt): \n", i+1);
+                scanf(" %s", arquivo);
+                // printf("%s %s", caminho, arquivo);
+                strcat(caminho, arquivo);
+                ConstroiDicionario(ptrDicionario, caminho);
+                OrdenaTudo(ptrDicionario, entrada, &temp, &comp, &movi, &quant);
+                if(!i){
+                    pausar_tela();
+                    limpar_tela();
+                }
+            }
+            limpar_dicionario(ptrDicionario);
+            temp = 0.0, comp = 0.0, movi = 0.0, quant = 0.0;
+            break;
+            
+        case 8:
             limpar_dicionario(ptrDicionario);
             printf("Dicionario esta limpo!\n\n");
             break;
 
-        case 8:
+        case 9:
             limpar_tela();
             return 0;
             break;

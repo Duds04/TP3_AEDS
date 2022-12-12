@@ -1,7 +1,7 @@
 #include "./headers/Ordenacoes.h"
 #include <time.h>
 
-int Insercao(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double *tempoExec)
+int Insercao(TListaDePalavras Lista, double* comparacoes, double* movimentacoes, double* tempoExec)
 {
     clock_t start_t, end_t;
     start_t = clock();
@@ -12,8 +12,8 @@ int Insercao(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, doubl
     {
         aux = Lista.lPalavra[i];
         j = i - 1;
-        (*comparacoes) ++;
 
+        (*comparacoes) ++;
         while ((j >= 0) && (strcmp(aux.ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra) < 0))
         {
             Lista.lPalavra[j + 1] = Lista.lPalavra[j];
@@ -30,7 +30,7 @@ int Insercao(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, doubl
     *(tempoExec) = (double)(end_t - start_t) / CLOCKS_PER_SEC;
 }
 
-void Shellsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double *tempoExec)
+void Shellsort(TListaDePalavras Lista, double* comparacoes, double* movimentacoes, double* tempoExec)
 {
     clock_t start_t, end_t;
     start_t = clock();
@@ -59,7 +59,7 @@ void Shellsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, dou
                     break;
             }
             Lista.lPalavra[j] = aux;
-            (*movimentacoes) ++;// por enquanto
+            (*movimentacoes) ++;
         }
     } while (h != 1);
     LImprimeListaPalavra(&Lista);
@@ -68,7 +68,7 @@ void Shellsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, dou
     *(tempoExec) = (double)(end_t - start_t) / CLOCKS_PER_SEC;
 }
 
-void Bolha(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double *tempoExec)
+void Bolha(TListaDePalavras Lista, double* comparacoes, double* movimentacoes, double* tempoExec)
 {
     // Calcula tempo gasto na ordenação
     clock_t start_t, end_t;
@@ -80,7 +80,7 @@ void Bolha(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double 
     {
         for (j = 1; j < Lista.ultimo; j++)
         {
-            *(comparacoes) += 1;
+            (*comparacoes) ++;
 
             if (strcmp(Lista.lPalavra[j - 1].ItemPalavra.Palavra, Lista.lPalavra[j].ItemPalavra.Palavra) > 0)
             {
@@ -97,7 +97,7 @@ void Bolha(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double 
     *(tempoExec) = (double)(end_t - start_t) / CLOCKS_PER_SEC;
 }
 
-void Selecao(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, double* tempoExec){
+void Selecao(TListaDePalavras Lista, double* comparacoes, double* movimentacoes, double* tempoExec){
 
     TCelulaPalavras aux;
     TCelulaPalavras *lpalavras = Lista.lPalavra;
@@ -112,10 +112,10 @@ void Selecao(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, doubl
             if (strcmp(lpalavras[menor].ItemPalavra.Palavra, lpalavras[j].ItemPalavra.Palavra) > 0 )
                 menor = j;
         }
-        (*movimentacoes) ++;
         aux = lpalavras[menor];
         lpalavras[menor] = lpalavras[i];
         lpalavras[i] = aux;
+        (*movimentacoes) ++;
     }
     
     LImprimeListaPalavra(&Lista);
@@ -123,7 +123,7 @@ void Selecao(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, doubl
     *(tempoExec) = (double)(end_t - start_t) / CLOCKS_PER_SEC;
 }
 
-void Quicksort(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, double* tempoExec){
+void Quicksort(TListaDePalavras Lista, double* comparacoes, double* movimentacoes, double* tempoExec){
     clock_t start_t, end_t;
     start_t = clock();
 
@@ -134,22 +134,20 @@ void Quicksort(TListaDePalavras Lista, int* comparacoes, int* movimentacoes, dou
     *(tempoExec) = (double)(end_t - start_t) / CLOCKS_PER_SEC;
 }
 
-void QsOrdena(int Esq, int Dir, TCelulaPalavras *lpalavras, int* comparacoes, int* movimentacoes){
+void QsOrdena(int Esq, int Dir, TCelulaPalavras* lpalavras, double* comparacoes, double* movimentacoes){
     int i, j;
 
     QsParticao(Esq, Dir, &i, &j, lpalavras, comparacoes, movimentacoes);
 
-    (*comparacoes) ++;// considero?
     if (Esq < j) 
         QsOrdena(Esq, j, lpalavras, comparacoes, movimentacoes);
 
-    (*comparacoes) ++;
     if (i < Dir) 
         QsOrdena(i, Dir, lpalavras, comparacoes, movimentacoes);
 
 }
 
-void QsParticao(int Esq, int Dir, int *i, int *j, TCelulaPalavras *lpalavras, int* comparacoes, int* movimentacoes){
+void QsParticao(int Esq, int Dir, int *i, int *j, TCelulaPalavras* lpalavras, double* comparacoes, double* movimentacoes){
     
     TPalavra pivo;
     TCelulaPalavras aux;
@@ -165,7 +163,6 @@ void QsParticao(int Esq, int Dir, int *i, int *j, TCelulaPalavras *lpalavras, in
         (*comparacoes) ++;
         while (strcmp(pivo.Palavra, lpalavras[*j].ItemPalavra.Palavra) < 0) (*j)--; (*comparacoes) ++;   //Qual do lado direito ta errado
 
-        (*comparacoes) ++;// considero?
         if (*i <= *j){
             aux = lpalavras[*i];
             lpalavras[*i] = lpalavras[*j];    //trocando os lugares que sao estao na posição errada
@@ -174,11 +171,10 @@ void QsParticao(int Esq, int Dir, int *i, int *j, TCelulaPalavras *lpalavras, in
             (*j)--;
             (*movimentacoes) ++;
         }
-        (*comparacoes) ++;// considero?
     }while (*i <= *j);
 }
 
-void Heapsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, double *tempoExec)
+void Heapsort(TListaDePalavras Lista, double* comparacoes, double* movimentacoes, double* tempoExec)
 {
     clock_t start_t, end_t;
     start_t = clock();
@@ -200,8 +196,8 @@ void Heapsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, doub
         aux = lpalavras[0];
         lpalavras[0] = lpalavras[Dir-1];
         lpalavras[Dir-1] = aux;
-        (*movimentacoes) ++;
         Dir--;
+        (*movimentacoes) ++;
         HS_Refaz(Esq, Dir, lpalavras, comparacoes, movimentacoes, tempoExec);
     }
 
@@ -212,7 +208,7 @@ void Heapsort(TListaDePalavras Lista, int *comparacoes, int *movimentacoes, doub
     *(tempoExec) = (double)(end_t - start_t) / CLOCKS_PER_SEC;
 }
 
-void HS_Constroi(TCelulaPalavras *lpalavras, int n, int *comparacoes, int *movimentacoes, double *tempoExec)
+void HS_Constroi(TCelulaPalavras* lpalavras, int n, double* comparacoes, double* movimentacoes, double* tempoExec)
 {
     int Esq;
     Esq = (n / 2);
@@ -223,7 +219,7 @@ void HS_Constroi(TCelulaPalavras *lpalavras, int n, int *comparacoes, int *movim
     }
 }
 
-void HS_Refaz(int Esq, int Dir, TCelulaPalavras *lpalavras, int *comparacoes, int *movimentacoes, double *tempoExec)
+void HS_Refaz(int Esq, int Dir, TCelulaPalavras* lpalavras, double* comparacoes, double* movimentacoes, double* tempoExec)
 {
     int j = (Esq * 2);
     TCelulaPalavras aux = lpalavras[Esq-1];
@@ -244,5 +240,5 @@ void HS_Refaz(int Esq, int Dir, TCelulaPalavras *lpalavras, int *comparacoes, in
         (*movimentacoes) ++;
     }
     lpalavras[Esq-1] = aux;
-    (*movimentacoes) ++; // considero?
+    (*movimentacoes) ++; 
 }
