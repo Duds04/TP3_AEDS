@@ -49,7 +49,7 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
         {
             return;
         }
-    for(a=0;a<pLista->ultimo;a++)
+    for(a = 0; a < pLista->ultimo; a++)
     {
         printf("\n-----------------------");
         Palavra = &(pLista->lPalavra[a].ItemPalavra);
@@ -61,23 +61,14 @@ void LImprimeListaPalavra(TListaDePalavras *pLista)
 
 int RemovePalavraDada(TListaDePalavras *pLista, char *palavra){
     int a, cont;
-    for(a=0; a<pLista->ultimo;a++){
+    for(a = 0; a < pLista->ultimo; a++){
         if (!(strcmp(pLista->lPalavra[a].ItemPalavra.Palavra, palavra)))
-        {
+        {   
+            for (cont = a; cont < pLista->ultimo; cont++)
+                pLista->lPalavra[cont] = pLista->lPalavra[cont+1];
             pLista->ultimo--;
-            for (cont = a+1; cont <= pLista->ultimo; cont++)
-                pLista->lPalavra[cont - 1] = pLista->lPalavra[cont];
             return 1;
         }
     }
     return 0;
-}
-
-int RemovePalavraFinal(TListaDePalavras *pLista)
-{
-    int cont;
-    pLista->ultimo--;
-    for (cont = 1; cont <= pLista->ultimo; cont++)
-        pLista->lPalavra[cont - 1] = pLista->lPalavra[cont];
-    return 1;
 }

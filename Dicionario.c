@@ -76,7 +76,7 @@ int ConstroiDicionario(Dicionario *pDicionario, char *pTexto)
     fclose(arquivo);
 }
 
-TListaDePalavras *ExibirListaPorLetra(Dicionario *pDicionario, char letra)
+TListaDePalavras* ExibirListaPorLetra(Dicionario *pDicionario, char letra)
 {
     pCelulaDicionario pAux;
     pAux = pDicionario->pPrimeiro->pProx;
@@ -93,6 +93,8 @@ TListaDePalavras *ExibirListaPorLetra(Dicionario *pDicionario, char letra)
         pAux = pAux->pProx;
 
     LImprimeListaPalavra(pAux->pLista);
+
+    return pAux->pLista;
 }
 
 void MostrarPlavras(Dicionario *pDicionario)

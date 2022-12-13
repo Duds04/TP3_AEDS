@@ -122,7 +122,7 @@ int main()
         printf("Escreva a operacao que deseja realizar:\n");
         printf("1 - Escrever o nome do arquivo de entrada\n");
         printf("2 - Buscar lista de palavras no dicionario pela letra\n");
-        printf("3 - Remover palavra em uma lista de palavras\n");
+        printf("4 - Remover palavra dada\n");
         printf("4 - Remover a ultima palavra\n");
         printf("5 - Imprime o dicionario\n");
         printf("6 - Utilizar metodos de ordenacao\n");
@@ -145,26 +145,30 @@ int main()
             break;
 
         case 2:
+            pLista = NULL;
             printf("Insira a letra para busca de listas: \n");
             scanf(" %c", &letra);
-            ExibirListaPorLetra(ptrDicionario, letra);
+            pLista = ExibirListaPorLetra(ptrDicionario, letra);
+            if (pLista->ultimo == pLista->primeiro)
+                printf("Lista nao encontrada\n");
             break;
 
         case 3:
-
             pLista = NULL;
-            printf("Insira a primeira letra da palavra: \n");
+            int verifica;
+            printf("Coloque a letra da lista voce quer remover: \n");
             scanf(" %c", &letra);
-            printf("Opcoes a ser removidas: \n");
             pLista = ExibirListaPorLetra(ptrDicionario, letra);
-            printf("\nEscreva a palavra que deseja remover: \n");
+            printf("\nEscolha a palavra a ser removida\n");
             scanf(" %s", palavra);
+            verifica = RemovePalavraDada(pLista, palavra);
 
-            if(pLista == NULL)
-                printf("Lista nao encontrada");
-            else{
-                RemovePalavraDada(pLista, palavra);
+            if(verifica) {
+                printf("\nPalavra removida\n");
+                ExibirListaPorLetra(ptrDicionario, letra);
             }
+            else printf("\nPalavra nao encontrada!\n");
+
             break;
 
         case 4:
@@ -177,12 +181,15 @@ int main()
 
             if(pLista->primeiro == pLista->ultimo)
                 printf("Lista nao encontrada\n");
+
             else{
-                RemovePalavraFinal(pLista);
+                pLista->ultimo --;
                 printf("\nLista depois da remocao: \n");
-                pLista = ExibirListaPorLetra(ptrDicionario, letra);
+
                 if(pLista->primeiro == pLista->ultimo)
                     printf("Lista nao encontrada\n");
+
+                else ExibirListaPorLetra(ptrDicionario, letra);
             }
             break;
 
@@ -213,7 +220,6 @@ int main()
                 limpar_dicionario(ptrDicionario);
                 printf("Digite o nome do %d arquivo (com sua extensao .txt): \n", i+1);
                 scanf(" %s", arquivo);
-                // printf("%s %s", caminho, arquivo);
                 strcat(caminho, arquivo);
                 ConstroiDicionario(ptrDicionario, caminho);
                 OrdenaTudo(ptrDicionario, entrada, &temp, &comp, &movi, &quant);
